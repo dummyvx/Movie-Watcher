@@ -17,14 +17,10 @@ import { AuthRoutingModule } from './auth-routing.module';
 
     AuthService,
 
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    }
+
   ],
   imports: [
-    HttpClientModule,
+
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
