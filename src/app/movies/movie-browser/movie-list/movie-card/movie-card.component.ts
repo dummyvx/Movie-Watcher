@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Genre } from 'src/app/models/genre';
-import { Movie } from 'src/app/models/movie';
+import { Genre } from 'src/app/movies/models/genre';
+import { Movie } from 'src/app/movies/models/movie';
 import { environment } from 'src/environments/environment';
 
 @Component({

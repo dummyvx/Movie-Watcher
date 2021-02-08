@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MovieDetails} from '../../models/movie-details';
 import {MovieCredits} from '../../models/movie-credits';
-import {environment} from '../../../environments/environment';
+import {environment} from '../../../../environments/environment';
 import {Person} from '../../models/person';
 
 @Component({

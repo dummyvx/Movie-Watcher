@@ -4,7 +4,7 @@
       <app-movie-rating [rating]="movie.vote_average"></app-movie-rating>
     </div>
     <ng-template #noImage>
-      <img class="no-image" src="./assets/no-image.png" alt="no image">
+      <img class="no-image" src="../../../../../assets/no-image.png" alt="no image">
     </ng-template>
     <div class="movie-info">
         <h3 class="title">{{ movie.title }}</h3>
@@ -15,3 +15,4 @@
         </div>
     </div>
 </div>
+<router-outlet></router-outlet>

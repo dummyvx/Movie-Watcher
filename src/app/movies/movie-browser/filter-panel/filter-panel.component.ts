@@ -1,7 +1,7 @@
-import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import { Genre } from 'src/app/models/genre';
-import { MovieService } from 'src/app/services/movie.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import { Genre } from 'src/app/movies/models/genre';
+import { MovieService } from 'src/app/movies/services/movie.service';
 import { DatePipe } from '@angular/common';
 import {FiltersStateService} from '../../services/filters-state.service';
 
