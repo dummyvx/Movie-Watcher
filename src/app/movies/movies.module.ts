@@ -20,6 +20,7 @@ import {SharedModule} from '../shared/shared.module';
 import {RouterModule} from '@angular/router';
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MovieInfoComponent,
     MovieCastComponent,
     MovieRatingComponent,
-    WatchlistComponent
+    WatchlistComponent,
+    FavoritesComponent
   ],
   imports: [
     FormsModule,

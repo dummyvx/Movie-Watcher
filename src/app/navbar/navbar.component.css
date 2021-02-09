@@ -45,6 +45,7 @@
 .menu-item {
   outline: none;
   transition: var(--transition);
+  padding: .3em;
 }
 
 .menu-item:hover {
@@ -59,6 +60,13 @@
 
 .btn-action {
   padding: .3em 1.2em;
+}
+
+.active {
+  color: var(--clr-white);
+  /*border: 1px solid var(--clr-white);*/
+  /*padding: .3em;*/
+  /*border-radius: 5px;*/
 }
 
 @media screen and (max-width: 630px) {

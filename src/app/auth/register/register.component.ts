@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
     )
       .subscribe(success => {
         if (success) {
-          this.router.navigate(['/login']);
+          this.router.navigate(['/auth/login']);
         }
       });
   }

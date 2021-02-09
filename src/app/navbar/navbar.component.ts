@@ -1,7 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {AuthService} from '../auth/services/auth.service';
-import {Subscription} from 'rxjs';
-import {Router} from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AuthService } from '../auth/services/auth.service';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
   private userSub: Subscription;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.userSub = this.authService.loggedUser.subscribe(user => {
@@ -22,7 +23,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   onLogout(): void {
-    this.authService.logout().subscribe(success => {
+    const logout = this.authService.logout().pipe(take(1));
+    logout.subscribe(success => {
       if (success) {
         this.router.navigate(['/movies']);
       }

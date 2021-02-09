@@ -2,10 +2,26 @@
   <div class="container">
     <h1 routerLink="/movies" class="logo"><span id="white-logo">Movie</span><span id="red-logo">Watcher</span></h1>
     <ul class="menu">
-      <li routerLink="/movies" routerLinkActive="active" class="menu-item"><i class="fas fa-film"></i> Movies</li>
-      <li *ngIf="isAuthenticated" routerLink="/watchlist" routerLinkActive="active" class="menu-item"><i class="far fa-bookmark"></i> Watchlist</li>
-      <li *ngIf="isAuthenticated" routerLink="/favorites" routerLinkActive="active" class="menu-item"><i class="far fa-heart"></i> Favorites</li>
-      <li *ngIf="!isAuthenticated" routerLink="/login" class="btn btn-action"> Login</li>
+      <li routerLink="/movies"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="menu-item">
+        <i class="fas fa-film"></i> Movies
+      </li>
+      <li *ngIf="isAuthenticated"
+          routerLink="/watchlist"
+          routerLinkActive="active"
+          class="menu-item"><i class="far fa-bookmark"> </i> Watchlist
+      </li>
+      <li *ngIf="isAuthenticated"
+          routerLink="/favorites"
+          routerLinkActive="active"
+          class="menu-item"><i class="far fa-heart"></i> Favorites
+      </li>
+      <li *ngIf="!isAuthenticated"
+          routerLink="/auth/login"
+          class="btn btn-action"> Login
+      </li>
       <li *ngIf="isAuthenticated" class="btn btn-action" (click)="onLogout()"> Logout</li>
     </ul>
   </div>

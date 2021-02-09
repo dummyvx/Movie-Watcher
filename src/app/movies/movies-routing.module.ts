@@ -4,6 +4,7 @@ import {MovieBrowserComponent} from './movie-browser/movie-browser.component';
 import {MovieDetailsComponent} from './movie-details/movie-details.component';
 import {WatchlistComponent} from './watchlist/watchlist.component';
 import {AuthGuard} from '../auth/guards/auth.guard';
+import {FavoritesComponent} from './favorites/favorites.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,11 @@ const routes: Routes = [
   {
     path: 'watchlist',
     component: WatchlistComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'favorites',
+    component: FavoritesComponent,
     canActivate: [AuthGuard]
   }
 ];
