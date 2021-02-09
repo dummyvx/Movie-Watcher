@@ -176,12 +176,12 @@ export class MovieService {
   }
 
   getMovieDetails$(id: number): Observable<MovieDetails> {
-    return this.http.get<MovieDetails>(`${this.movieDetailsUrl}/${id}?api_key=${environment.api_key}`);
+    return this.http.get<MovieDetails>(`${this.movieDetailsUrl}/${id}?api_key=${environment.api_key}&append_to_response=credits,similar`);
   }
 
-  getMovieCredits$(id: number): Observable<MovieCredits> {
-    return this.http.get<MovieCredits>(`${this.movieDetailsUrl}/${id}/credits?api_key=${environment.api_key}`);
-  }
+  // getMovieCredits$(id: number): Observable<MovieCredits> {
+  //   return this.http.get<MovieCredits>(`${this.movieDetailsUrl}/${id}/credits?api_key=${environment.api_key}`);
+  // }
 
 
 }

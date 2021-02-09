@@ -1,4 +1,4 @@
-<div  *ngIf="data | async as data">
+<div  *ngIf="movieDetails$ | async as data">
   <ng-container *ngIf="movieService.isLoading">
       <app-loading-spinner></app-loading-spinner>
   </ng-container>

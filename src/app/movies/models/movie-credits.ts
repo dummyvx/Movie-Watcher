@@ -1,7 +1,6 @@
 import { Person } from './person';
 
 export interface MovieCredits {
-    id: number;
-    cast: Person[];
-    crew: Person[];
+    cast?: Person[];
+    crew?: Person[];
 }

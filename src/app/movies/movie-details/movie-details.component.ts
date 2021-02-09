@@ -13,26 +13,29 @@ import {map, mergeMap} from 'rxjs/operators';
 })
 export class MovieDetailsComponent implements OnInit {
 
-  data: Observable<{ movieDetails: MovieDetails, movieCredits: MovieCredits }>;
-
+  movieDetails$: Observable<MovieDetails>;
 
   constructor(public movieService: MovieService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getMovieDetails();
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.movieDetails$ = this.movieService.getMovieDetails$(id);
   }
 
-  getMovieDetails(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.data = this.movieService.getMovieDetails$(id).pipe(
-      mergeMap(movieDetails => this.movieService.getMovieCredits$(id).pipe(
-        map(movieCredits => ({
-          movieDetails,
-          movieCredits
-        }))
-      ))
-    );
-  }
+  // getMovieDetails(): void {
+  //   const id = +this.route.snapshot.paramMap.get('id');
+  //   this.data = this.movieService.getMovieDetails$(id);
+  //
+  //   // const id = +this.route.snapshot.paramMap.get('id');
+  //   // this.data = this.movieService.getMovieDetails$(id).pipe(
+  //   //   mergeMap(movieDetails => this.movieService.getMovieCredits$(id).pipe(
+  //   //     map(movieCredits => ({
+  //   //       movieDetails,
+  //   //       movieCredits
+  //   //     }))
+  //   //   ))
+  //   // );
+  // }
 
 
 }

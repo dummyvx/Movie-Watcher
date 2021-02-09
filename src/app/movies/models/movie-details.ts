@@ -1,4 +1,6 @@
 import { Genre } from './genre';
+import {Movie} from './movie';
+import {MovieCredits} from './movie-credits';
 
 export interface MovieDetails {
     id: number;
@@ -13,4 +15,6 @@ export interface MovieDetails {
     tagline: string;
     title: string;
     vote_average: number;
+    credits: MovieCredits;
+    similar: Movie[];
 }

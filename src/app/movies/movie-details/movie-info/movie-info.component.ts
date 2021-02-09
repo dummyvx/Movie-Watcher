@@ -12,7 +12,7 @@ import {Person} from '../../models/person';
 export class MovieInfoComponent implements OnInit {
 
   @Input()
-  data: { movieDetails: MovieDetails, movieCredits: MovieCredits };
+  data: MovieDetails;
   env: string = environment.tmdb_imagesUrl_w500;
 
   constructor() { }
