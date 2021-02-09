@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {MovieBrowserComponent} from './movie-browser/movie-browser.component';
 import {MovieDetailsComponent} from './movie-details/movie-details.component';
 import {WatchlistComponent} from './watchlist/watchlist.component';
+import {AuthGuard} from '../auth/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
   },
   {
     path: 'watchlist',
-    component: WatchlistComponent
+    component: WatchlistComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
