@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-
   get form(): { [key: string]: AbstractControl } {
     return this.loginForm.controls;
   }

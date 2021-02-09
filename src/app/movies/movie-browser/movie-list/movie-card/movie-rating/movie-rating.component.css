@@ -1,26 +1,21 @@
 .rating {
   position: absolute;
-  bottom: .5em;
-  right: .3em;
   color: var(--clr-white);
   border-radius: 50%;
   padding: .5em;
-  font-size: .9rem;
-  font-weight: bold;
   background: rgba(0,0,0,.7);
-  z-index: 1;
 }
 
 .green {
-  border: 2px solid #1b9e1b;
+  border: 2px solid rgba(27,158,27,.6);
 }
 
 .orange {
-  border: 2px solid #be8111;
+  border: 2px solid rgba(190,127,17,.6);
 }
 
 .red {
-  border: 2px solid #ca0d0d;
+  border: 2px solid rgba(202,13,13,.6);
 }
 
 .grey {

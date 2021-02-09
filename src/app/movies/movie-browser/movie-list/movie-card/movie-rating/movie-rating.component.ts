@@ -11,7 +11,17 @@ export class MovieRatingComponent implements OnInit {
   rating: number;
 
   @Input()
-  size: string;
+  fontSize: string;
+  // @Input()
+  // position: { top, bottom, left, right };
+  @Input()
+  top: string;
+  @Input()
+  bottom: string;
+  @Input()
+  left: string;
+  @Input()
+  right: string;
 
   constructor() { }
 
@@ -30,10 +40,15 @@ export class MovieRatingComponent implements OnInit {
     return color;
   }
 
-  applyFontSize(): any {
-    if (this.size === 'large') {
-      return { 'font-size': '1.3em' };
-    }
+  applyStyles(): any {
+    return {
+      fontSize: this.fontSize,
+      top: this.top,
+      bottom: this.bottom,
+      left: this.left,
+      right: this.right
+    };
   }
+
 
 }

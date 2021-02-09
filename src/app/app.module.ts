@@ -8,6 +8,7 @@ import { DatePipe } from '@angular/common';
 import { MoviesModule } from './movies/movies.module';
 import { AppRoutingModule } from './app-routing.module';
 import {TokenInterceptor} from './auth/token.interceptor';
+import {AuthModule} from './auth/auth.module';
 
 @NgModule({
   declarations: [

@@ -4,6 +4,15 @@
   grid-gap: 1.5em;
   grid-template-columns: 300px 1fr;
   grid-template-areas: "poster movie-info";
+  margin-bottom: 1.2rem;
+}
+
+.app-movie-info {
+  text-align: center;
+}
+
+.spinner {
+  text-align: center;
 }
 
 @media screen and (max-width: 790px) {

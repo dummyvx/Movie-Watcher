@@ -18,6 +18,8 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MoviesRoutingModule} from './movies-routing.module';
 import {SharedModule} from '../shared/shared.module';
 import {RouterModule} from '@angular/router';
+import { WatchlistComponent } from './watchlist/watchlist.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import {RouterModule} from '@angular/router';
     MovieSearchComponent,
     MovieInfoComponent,
     MovieCastComponent,
-    MovieRatingComponent
+    MovieRatingComponent,
+    WatchlistComponent
   ],
   imports: [
     FormsModule,
@@ -41,7 +44,8 @@ import {RouterModule} from '@angular/router';
     MatSliderModule,
     MoviesRoutingModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    MatSlideToggleModule
   ]
 })
 export class MoviesModule { }

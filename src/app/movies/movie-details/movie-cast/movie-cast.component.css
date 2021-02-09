@@ -1,0 +1,28 @@
+.cast-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+  color: var(--clr-white);
+}
+
+.person {
+  width: 140px;
+  text-align: center;
+  margin-right: 1.2rem;
+  margin-bottom: .8rem;
+  color: var(--clr-white);
+}
+
+.name {
+  font-size: 1rem;
+  margin-bottom: .3rem;
+}
+
+.character {
+  font-size: .8rem;
+}

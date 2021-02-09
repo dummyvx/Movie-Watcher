@@ -2,9 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {MovieService} from '../services/movie.service';
 import {MovieDetails} from '../models/movie-details';
-import {MovieCredits} from '../models/movie-credits';
 import {Observable} from 'rxjs';
-import {map, mergeMap} from 'rxjs/operators';
+import {Person} from '../models/person';
+import {Movie} from '../models/movie';
+import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-movie-details',
@@ -13,29 +14,26 @@ import {map, mergeMap} from 'rxjs/operators';
 })
 export class MovieDetailsComponent implements OnInit {
 
-  movieDetails$: Observable<MovieDetails>;
+  // movieDetails$: Observable<MovieDetails>;
+  movieDetails: MovieDetails;
+  cast: Person[];
+  similarMovies: Movie[];
+  isLoading = false;
 
   constructor(public movieService: MovieService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     const id = +this.route.snapshot.paramMap.get('id');
-    this.movieDetails$ = this.movieService.getMovieDetails$(id);
+    this.movieService.getMovieDetails$(id)
+      .pipe(
+        tap(data => {
+          this.movieDetails = data;
+          this.cast = data.credits.cast;
+          this.similarMovies = data.similar;
+          this.isLoading = false;
+        })
+      ).subscribe();
   }
-
-  // getMovieDetails(): void {
-  //   const id = +this.route.snapshot.paramMap.get('id');
-  //   this.data = this.movieService.getMovieDetails$(id);
-  //
-  //   // const id = +this.route.snapshot.paramMap.get('id');
-  //   // this.data = this.movieService.getMovieDetails$(id).pipe(
-  //   //   mergeMap(movieDetails => this.movieService.getMovieCredits$(id).pipe(
-  //   //     map(movieCredits => ({
-  //   //       movieDetails,
-  //   //       movieCredits
-  //   //     }))
-  //   //   ))
-  //   // );
-  // }
-
 
 }

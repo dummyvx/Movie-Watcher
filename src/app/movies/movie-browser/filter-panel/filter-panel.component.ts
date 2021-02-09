@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import { Genre } from 'src/app/movies/models/genre';
 import { MovieService } from 'src/app/movies/services/movie.service';
 import { DatePipe } from '@angular/common';
-import {FiltersStateService} from '../../services/filters-state.service';
+import {FiltersService} from '../../services/filters.service';
 
 @Component({
   selector: 'app-filter-panel',
@@ -34,7 +34,7 @@ export class FilterPanelComponent implements OnInit   {
 
   constructor(private movieService: MovieService,
               private datePipe: DatePipe,
-              public filterService: FiltersStateService) { }
+              public filterService: FiltersService) { }
 
   ngOnInit(): void {
     this.genres$ = this.movieService.getGenres$();

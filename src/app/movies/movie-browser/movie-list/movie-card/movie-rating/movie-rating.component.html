@@ -1,8 +1,8 @@
 <span *ngIf="rating; else noRating"
       [ngClass]="colorBorder(rating)"
       class="rating"
-      [ngStyle]="applyFontSize()">
+      [ngStyle]="applyStyles()">
   {{rating | number:'1.1'}}
 </span>
 
-<ng-template #noRating><span class="rating grey">n/a</span></ng-template>
+<ng-template #noRating><span class="rating grey" [ngStyle]="applyStyles()">n/a</span></ng-template>

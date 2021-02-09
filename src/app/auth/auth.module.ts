@@ -20,7 +20,6 @@ import { AuthRoutingModule } from './auth-routing.module';
 
   ],
   imports: [
-
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,

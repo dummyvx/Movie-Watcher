@@ -1,14 +1,12 @@
-
 .movie-info {
   background: var(--clr-bg-secondary);
   padding: 1.2em;
   border-radius: var(--border-radius);
+
   /*display: flex;*/
   /*flex-direction: column;*/
   /*justify-content: space-around;*/
 }
-
-
 
 .poster {
   grid-area: poster;
@@ -39,6 +37,7 @@
 
 .tagline {
   font-style: italic;
+  font-weight: normal;
   font-size: 1.4rem;
   color: var(--clr-grey);
   padding: .9em 0;
@@ -50,7 +49,7 @@
 
 .title {
   font-size: 1.8rem;
-  margin-right: 1.8rem;
+  margin-right: 3.8rem;
 }
 
 h4 {
