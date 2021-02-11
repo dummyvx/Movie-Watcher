@@ -1,5 +1,5 @@
 .movie-card {
-    width: 140px;
+    width: 190px;
     margin-left: 1.2em;
     margin-bottom: 1.2em;
     text-align: center;
@@ -44,36 +44,50 @@
     margin: .3em;
 }
 
-@media screen and (max-width: 1186px) {
-    .movie-card {
-        width: 180px;
-    }
+.fa-trash {
+  /*position: absolute;*/
+  /*top: .5rem;*/
+  /*right: .5rem;*/
 }
 
-@media screen and (max-width: 1149px) {
-    .movie-card {
-        width: 235px;
-    }
+.remove-btn {
+  /*border-radius: initial;*/
+  margin-bottom: .8rem;
+  text-align: center;
+  margin-left: 1.2em;
 }
 
 
-@media screen and (max-width: 940px) {
-  .movie-card {
-    width: 260px;
-  }
-}
+/*@media screen and (max-width: 1186px) {*/
+/*    .movie-card {*/
+/*        width: 180px;*/
+/*    }*/
+/*}*/
 
-@media screen and (max-width: 798px) {
-  .movie-card {
-    margin-right: 0;
-    width: 280px;
-  }
-}
-@media screen and (max-width: 630px) {
-  .movie-card {
-    margin: 0 auto 1.2em;
+/*@media screen and (max-width: 1149px) {*/
+/*    .movie-card {*/
+/*        width: 235px;*/
+/*    }*/
+/*}*/
 
-  }
-}
+
+/*@media screen and (max-width: 940px) {*/
+/*  .movie-card {*/
+/*    width: 260px;*/
+/*  }*/
+/*}*/
+
+/*@media screen and (max-width: 798px) {*/
+/*  .movie-card {*/
+/*    margin-right: 0;*/
+/*    width: 280px;*/
+/*  }*/
+/*}*/
+/*@media screen and (max-width: 630px) {*/
+/*  .movie-card {*/
+/*    margin: 0 auto 1.2em;*/
+
+/*  }*/
+/*}*/
 
 

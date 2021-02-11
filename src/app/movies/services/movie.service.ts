@@ -5,7 +5,6 @@ import { map, shareReplay, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Genre } from '../models/genre';
 import { Movie } from '../models/movie';
-import { MovieCredits } from '../models/movie-credits';
 import { MovieDetails } from '../models/movie-details';
 import { Dates } from '../models/dates';
 import { UrlParameters } from '../models/url-parameters';
@@ -21,7 +20,7 @@ export class MovieService {
 
   urlParams = {
     sortCategory: UrlParameters.POPULARITY_DESC,
-    pageNumber: UrlParameters.PAGE_NUMBER,
+    pageNumber: UrlParameters.DEFAULT_PAGE_NUMBER,
     releaseDateGte: '',
     releaseDateLte: '',
     withReleaseType: '',
@@ -179,9 +178,12 @@ export class MovieService {
     return this.http.get<MovieDetails>(`${this.movieDetailsUrl}/${id}?api_key=${environment.api_key}&append_to_response=credits,similar`);
   }
 
-  // getMovieCredits$(id: number): Observable<MovieCredits> {
-  //   return this.http.get<MovieCredits>(`${this.movieDetailsUrl}/${id}/credits?api_key=${environment.api_key}`);
-  // }
+  getFavoriteMovies(userId: number): Observable<Movie[]> {
+    return this.http.get<Movie[]>(`${environment.backend_base_url}/users/${userId}/favorites`);
+  }
 
+  removeMovieFromFavorites(userId: number, movieId: number): Observable<Movie> {
+    return this.http.delete<Movie>(`${environment.backend_base_url}/users/${userId}/favorites/${movieId}`);
+  }
 
 }

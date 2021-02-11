@@ -2,28 +2,18 @@
   background: var(--clr-bg-secondary);
   padding: 1.2em;
   border-radius: var(--border-radius);
-
-  /*display: flex;*/
-  /*flex-direction: column;*/
-  /*justify-content: space-around;*/
 }
 
 .poster {
   grid-area: poster;
 }
 
-/*.title-rating-section {*/
-/*  display: flex;*/
-/*  justify-content: space-between;*/
-/*}*/
-
 .movie-info {
   grid-area: movie-info;
   position: relative;
-}
-
-.basic-details {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .basic-details span {
@@ -40,15 +30,24 @@
   font-weight: normal;
   font-size: 1.4rem;
   color: var(--clr-grey);
-  padding: .9em 0;
+  padding: .5em 0;
+}
+
+.overview {
+  padding: .8em 0;
 }
 
 .overview p {
   padding-bottom: .9em;
+  line-height: 1.2rem;
 }
 
 .title {
   font-size: 1.8rem;
+  margin-right: 3.8rem;
+}
+
+.stats {
   margin-right: 3.8rem;
 }
 
@@ -76,15 +75,35 @@ h4 {
 
 .genres {
   display: flex;
+  flex-wrap: wrap;
   padding-top: 1.2em;
 }
 
 .genres .btn {
   margin-right: .5em;
+  margin-bottom: .5em;
 }
 
 .rating {
   bottom: 0;
+}
+
+.action-icons {
+  font-size: 1.8rem;
+  color: var(--clr-grey);
+  padding: .5rem .5rem .5rem 0;
+}
+
+.fas.active:hover, .far.active:hover {
+  color: var(--clr-red);
+}
+
+.fas, .far {
+  margin-right: .5rem;
+}
+
+.fas:hover, .far:hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 790px) {

@@ -9,11 +9,8 @@ export class MovieRatingComponent implements OnInit {
 
   @Input()
   rating: number;
-
   @Input()
   fontSize: string;
-  // @Input()
-  // position: { top, bottom, left, right };
   @Input()
   top: string;
   @Input()

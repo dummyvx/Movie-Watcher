@@ -3,12 +3,12 @@
 </ng-container>
 
 <div class="movie-list-container" *ngIf="genres$ | async as genres">
-    <app-movie-card *ngFor="let movie of movies"
+    <app-movie-card (toBeDeletedMovieId)="remove($event)"  *ngFor="let movie of movies"
                     [genres]="genres" [movie]="movie">
     </app-movie-card>
     <ng-container *ngIf="!movieService.isLoading">
       <ng-container *ngIf="movies.length; else noMovies">
-        <button *ngIf="movies.length >= 20"
+        <button *ngIf="movies.length >= 20 && currentUrl === 'movies'"
                 [disabled]="noMoreMovies"
                 [class.btn-disabled]="noMoreMovies"
                 class="btn btn-action fade-in" (click)="loadMore()">{{ noMoreMovies ? 'No More Data' : 'Load More'}}
@@ -17,7 +17,8 @@
     </ng-container>
 
   <ng-template #noMovies>
-    <p class="no-movies">No movies matching these search criteria</p>
+    <p class="no-movies" *ngIf="currentUrl === 'movies'">No movies matching these search criteria</p>
+    <p class="no-movies" *ngIf="currentUrl === 'favorites'">You haven't added any films to your favorites</p>
   </ng-template>
 </div>
 

@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Genre } from 'src/app/movies/models/genre';
 import { Movie } from 'src/app/movies/models/movie';
 import { environment } from 'src/environments/environment';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-movie-card',
@@ -17,16 +18,25 @@ export class MovieCardComponent implements OnInit {
 
   @Input()
   movie: Movie;
+  @Output()
+  toBeDeletedMovieId = new EventEmitter<number>();
 
-  constructor() { }
+  currentUrl: string;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.currentUrl = this.route.snapshot.routeConfig.path;
   }
 
   getGenreById(id: string): string {
     if (this.genres) {
       return this.genres.find(genre => genre.id === id).name;
     }
+  }
+
+  remove(movieId: number): void {
+    this.toBeDeletedMovieId.emit(movieId);
   }
 
 }

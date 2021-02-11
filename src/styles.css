@@ -30,8 +30,6 @@ body {
     max-width: var(--max-width);
     margin: auto;
     padding: 0 1rem;
-    /*padding: 1.4em;*/
-    /*min-height: 100vh;*/
 }
 
 .btn {
@@ -60,12 +58,12 @@ body {
 .btn:hover {
   color: var(--clr-white);
   background: var(--clr-red) ;
+  cursor: pointer;
 }
 
 .btn-action:hover {
   background-color: #991818;
   /*font-weight: bold;*/
-  cursor: pointer;
   /*color: var(--clr-red);*/
 }
 
@@ -167,6 +165,10 @@ img.no-image {
       font-size: .9rem;
     }
 
+}
+
+.mat-tooltip.tooltip {
+  font-size: .8rem;
 }
 
 .fade-in {

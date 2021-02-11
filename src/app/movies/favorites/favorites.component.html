@@ -1,1 +1,1 @@
-<p>favorites works!</p>
+<app-movie-list (toBeDeletedMovieId)="remove($event)" *ngIf="favoriteMovies" [movies]="favoriteMovies"></app-movie-list>

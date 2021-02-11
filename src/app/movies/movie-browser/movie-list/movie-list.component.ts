@@ -1,8 +1,9 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import { Genre } from 'src/app/movies/models/genre';
 import { Movie } from 'src/app/movies/models/movie';
 import { MovieService } from 'src/app/movies/services/movie.service';
 import {Observable} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-movie-list',
@@ -15,8 +16,11 @@ export class MovieListComponent implements OnInit, OnChanges {
   movies: Movie[];
   genres$: Observable<Genre[]>;
   noMoreMovies: boolean;
+  currentUrl: string;
+  @Output()
+  toBeDeletedMovieId = new EventEmitter<number>();
 
-  constructor(public movieService: MovieService) { }
+  constructor(public movieService: MovieService, private route: ActivatedRoute) { }
 
   ngOnChanges(): void {
     this.noMoreMovies = this.movieService.pageNumber === this.movieService.totalPages;
@@ -24,6 +28,7 @@ export class MovieListComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.genres$ = this.movieService.getGenres$();
+    this.currentUrl = this.route.snapshot.routeConfig.path;
   }
 
   loadMore(): void {
@@ -34,6 +39,10 @@ export class MovieListComponent implements OnInit, OnChanges {
       this.movieService.getMovies();
     }
     console.log(this.movieService.urlParams);
+  }
+
+  remove(movieId: number): void {
+    this.toBeDeletedMovieId.emit(movieId);
   }
 
 }

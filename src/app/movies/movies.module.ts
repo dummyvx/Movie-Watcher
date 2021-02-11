@@ -21,6 +21,7 @@ import {RouterModule} from '@angular/router';
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { FavoritesComponent } from './favorites/favorites.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { FavoritesComponent } from './favorites/favorites.component';
     MoviesRoutingModule,
     SharedModule,
     RouterModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatTooltipModule
   ]
 })
 export class MoviesModule { }

@@ -1,10 +1,15 @@
 .movie-details-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-info-container {
   color: var(--clr-white);
   display: grid;
   grid-gap: 1.5em;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 350px 1fr;
   grid-template-areas: "poster movie-info";
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.6rem;
 }
 
 .app-movie-info {

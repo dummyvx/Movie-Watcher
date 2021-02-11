@@ -7,17 +7,17 @@
 }
 
 .green {
-  border: 2px solid rgba(27,158,27,.6);
+  border: 3px solid rgba(27,158,27,.6);
 }
 
 .orange {
-  border: 2px solid rgba(190,127,17,.6);
+  border: 3px solid rgba(190,127,17,.6);
 }
 
 .red {
-  border: 2px solid rgba(202,13,13,.6);
+  border: 3px solid rgba(202,13,13,.6);
 }
 
 .grey {
-  border: 2px solid var(--clr-grey);
+  border: 3px solid var(--clr-grey);
 }

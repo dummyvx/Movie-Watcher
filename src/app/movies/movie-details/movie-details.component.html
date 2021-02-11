@@ -1,5 +1,8 @@
 <div class="spinner" *ngIf="isLoading">
     <app-loading-spinner></app-loading-spinner>
 </div>
-<app-movie-info *ngIf="!isLoading" class="movie-details-container" [movieDetails]="movieDetails"></app-movie-info>
-<app-movie-cast *ngIf="!isLoading" [cast]="cast"></app-movie-cast>
+<div class="movie-details-container">
+  <app-movie-info *ngIf="!isLoading" class="movie-info-container" [movieDetails]="movieDetails"></app-movie-info>
+  <app-movie-cast *ngIf="!isLoading" [cast]="cast"></app-movie-cast>
+</div>
+

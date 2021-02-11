@@ -2,10 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {MovieService} from '../services/movie.service';
 import {MovieDetails} from '../models/movie-details';
-import {Observable} from 'rxjs';
 import {Person} from '../models/person';
 import {Movie} from '../models/movie';
-import {tap} from 'rxjs/operators';
+import {take, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-movie-details',
@@ -27,6 +26,7 @@ export class MovieDetailsComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.movieService.getMovieDetails$(id)
       .pipe(
+        take(1),
         tap(data => {
           this.movieDetails = data;
           this.cast = data.credits.cast;

@@ -44,6 +44,7 @@ export class MovieBrowserComponent implements OnInit {
     this.movieService.getUpcomingDates$().subscribe(data => this.upcomingDates = data);
     this.movieService.movies$.next([]);
     this.movieService.getMovies();
+    this.movieService.urlParams.pageNumber = UrlParameters.DEFAULT_PAGE_NUMBER;
   }
 
   onButtonClicked(category: string): void {
