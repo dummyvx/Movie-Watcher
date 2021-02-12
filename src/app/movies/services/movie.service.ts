@@ -186,4 +186,11 @@ export class MovieService {
     return this.http.delete<Movie>(`${environment.backend_base_url}/users/${userId}/favorites/${movieId}`);
   }
 
+  getWatchlistMovies(userId: number): Observable<Movie[]> {
+    return this.http.get<Movie[]>(`${environment.backend_base_url}/users/${userId}/watchlist`);
+  }
+
+  removeMovieFromWatchlist(userId: number, movieId: number): Observable<Movie> {
+    return this.http.delete<Movie>(`${environment.backend_base_url}/users/${userId}/watchlist/${movieId}`);
+  }
 }

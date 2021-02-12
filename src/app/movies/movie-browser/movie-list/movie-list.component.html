@@ -16,10 +16,12 @@
       </ng-container>
     </ng-container>
 
-  <ng-template #noMovies>
-    <p class="no-movies" *ngIf="currentUrl === 'movies'">No movies matching these search criteria</p>
-    <p class="no-movies" *ngIf="currentUrl === 'favorites'">You haven't added any films to your favorites</p>
-  </ng-template>
+
 </div>
 
 
+<ng-template #noMovies>
+  <p class="no-movies" *ngIf="currentUrl === 'movies'">No movies matching these search criteria</p>
+  <p class="no-movies" *ngIf="currentUrl === 'favorites'">You haven't added any films to your favorites</p>
+  <p class="no-movies" *ngIf="currentUrl === 'watchlist'">You haven't added any films to your watchlist</p>
+</ng-template>

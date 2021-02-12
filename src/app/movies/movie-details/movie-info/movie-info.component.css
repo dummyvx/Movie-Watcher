@@ -106,6 +106,14 @@ h4 {
   cursor: pointer;
 }
 
+.far.no-hover:hover {
+  color: var(--clr-grey);
+}
+
+.far.selected {
+  color: var(--clr-red);
+}
+
 @media screen and (max-width: 790px) {
   .movie-details-container {
     grid-template-areas:

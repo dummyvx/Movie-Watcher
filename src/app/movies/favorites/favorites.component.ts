@@ -27,11 +27,13 @@ export class FavoritesComponent implements OnInit, OnDestroy {
   }
 
   getFavoriteMovies(): void {
+    this.movieService.isLoading = true;
     this.movieService.getFavoriteMovies(this.loggedUser.id)
       .pipe(
         take(1),
         tap(data => {
           this.favoriteMovies = data;
+          this.movieService.isLoading = false;
         }),
       ).subscribe();
   }

@@ -1,1 +1,1 @@
-<p>watchlist works!</p>
+<app-movie-list (toBeDeletedMovieId)="remove($event)" *ngIf="watchlistMovies" [movies]="watchlistMovies"></app-movie-list>

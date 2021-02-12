@@ -10,7 +10,9 @@
 }
 
 .no-movies {
-  font-size: 1rem;
+  font-size: 1.5rem;
+  padding-top: 1.2rem;
+  margin: auto;
 }
 
 /*@media screen and (max-width: 1030px) {*/
