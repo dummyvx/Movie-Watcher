@@ -44,7 +44,7 @@ export class MovieService {
   isLoading = false;
   searchTerm: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getMovies(): void {
     this.searchMode = false;
