@@ -4,7 +4,7 @@ import {User} from '../../auth/models/user';
 import {Subscription} from 'rxjs';
 import {AuthService} from '../../auth/services/auth.service';
 import {MovieService} from '../services/movie.service';
-import {take, tap} from 'rxjs/operators';
+import {catchError, take, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-watchlist',
@@ -13,7 +13,7 @@ import {take, tap} from 'rxjs/operators';
 })
 export class WatchlistComponent implements OnInit, OnDestroy {
 
-  constructor(private authService: AuthService, private movieService: MovieService) { }
+  constructor(private authService: AuthService, private movieService: MovieService) {}
 
   watchlistMovies: Movie[];
   loggedUser: User;
@@ -29,13 +29,13 @@ export class WatchlistComponent implements OnInit, OnDestroy {
   getWatchlistMovies(): void {
     this.movieService.isLoading = true;
     this.movieService.getWatchlistMovies(this.loggedUser.id)
-      .pipe(
-        take(1),
-        tap(data => {
-          this.watchlistMovies = data;
-          this.movieService.isLoading = false;
-        }),
-      ).subscribe();
+      .subscribe(data => {
+        this.watchlistMovies = data;
+        this.movieService.isLoading = false;
+      }, error => {
+        this.movieService.isLoading = false;
+        console.log(error.message);
+      });
   }
 
   remove(movieId: number): void {

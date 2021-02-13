@@ -84,12 +84,12 @@ export class MovieService {
   }
 
   resetUrlParams(): void {
-    this.urlParams.pageNumber = 1;
+    this.urlParams.pageNumber = UrlParameters.DEFAULT_PAGE_NUMBER;
     this.urlParams.sortCategory = UrlParameters.POPULARITY_DESC;
     this.urlParams.releaseDateGte = '';
     this.urlParams.releaseDateLte = '';
     this.urlParams.withReleaseType = '';
-    this.urlParams.voteCountGte = 0;
+    this.urlParams.voteCountGte = UrlParameters.DEFAULT_VOTE_COUNT;
   }
 
   buildUrlParams(): string {
@@ -182,12 +182,20 @@ export class MovieService {
     return this.http.get<Movie[]>(`${environment.backend_base_url}/users/${userId}/favorites`);
   }
 
+  addMovieToFavorites(userId: number, movie: Movie): Observable<Movie> {
+    return this.http.post<Movie>(`${environment.backend_base_url}/users/${userId}/favorites`, movie);
+  }
+
   removeMovieFromFavorites(userId: number, movieId: number): Observable<Movie> {
     return this.http.delete<Movie>(`${environment.backend_base_url}/users/${userId}/favorites/${movieId}`);
   }
 
   getWatchlistMovies(userId: number): Observable<Movie[]> {
     return this.http.get<Movie[]>(`${environment.backend_base_url}/users/${userId}/watchlist`);
+  }
+
+  addMovieToWatchlist(userId: number, movie: Movie): Observable<Movie> {
+    return this.http.post<Movie>(`${environment.backend_base_url}/users/${userId}/watchlist`, movie);
   }
 
   removeMovieFromWatchlist(userId: number, movieId: number): Observable<Movie> {

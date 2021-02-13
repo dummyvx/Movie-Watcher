@@ -13,13 +13,12 @@ import {take, tap} from 'rxjs/operators';
 })
 export class MovieDetailsComponent implements OnInit {
 
-  // movieDetails$: Observable<MovieDetails>;
   movieDetails: MovieDetails;
   cast: Person[];
   similarMovies: Movie[];
   isLoading = false;
 
-  constructor(public movieService: MovieService, private route: ActivatedRoute) { }
+  constructor(public movieService: MovieService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.isLoading = true;
