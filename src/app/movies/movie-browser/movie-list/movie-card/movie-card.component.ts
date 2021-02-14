@@ -15,7 +15,6 @@ export class MovieCardComponent implements OnInit {
 
   @Input()
   genres: Genre[];
-
   @Input()
   movie: Movie;
   @Output()

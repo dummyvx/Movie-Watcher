@@ -2,9 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Movie} from '../models/movie';
 import {AuthService} from '../../auth/services/auth.service';
 import {User} from '../../auth/models/user';
-import {Observable, Subscription} from 'rxjs';
+import {Subscription} from 'rxjs';
 import {MovieService} from '../services/movie.service';
-import {catchError, mapTo, take, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-favorites',

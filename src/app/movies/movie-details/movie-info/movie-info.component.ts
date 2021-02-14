@@ -7,7 +7,7 @@ import {AuthService} from '../../../auth/services/auth.service';
 import {Observable, Subscription} from 'rxjs';
 import {User} from '../../../auth/models/user';
 import {MovieService} from '../../services/movie.service';
-import {UserService} from '../../services/user-service';
+import {UserService} from '../../services/user.service';
 import {UserData} from '../../models/user-data';
 import {Movie} from '../../models/movie';
 
@@ -27,7 +27,6 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
   watchlistSelected: boolean;
   favoritesSelected: boolean;
   userData: UserData;
-  error = null;
 
   constructor(private authService: AuthService,
               private movieService: MovieService,
@@ -85,20 +84,17 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
   }
 
   removeMovieFromWatchlist(event): void {
-    this.error = null;
     this.movieService.removeMovieFromWatchlist(this.loggedUser.id, this.movieDetails.id)
       .subscribe(() => {
         console.log(`${this.movieDetails.title} removed from watchlist`);
         this.watchlistSelected = !this.watchlistSelected;
         this.handleEvent(event);
       }, error => {
-        this.error = error;
         console.log('something went wrong', error);
       });
   }
 
   addMovieToWatchlist(event): void {
-    this.error = null;
     const movie = this.createMovie();
     this.movieService.addMovieToWatchlist(this.loggedUser.id, movie)
       .subscribe(() => {
@@ -106,26 +102,22 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
         this.handleEvent(event);
         console.log(`${this.movieDetails.title} added to watchlist`);
       }, error => {
-        this.error = error;
         console.log('something went wrong', error);
       });
   }
 
   removeMovieFromFavorites(event): void {
-    this.error = null;
     this.movieService.removeMovieFromFavorites(this.loggedUser.id, this.movieDetails.id)
       .subscribe(() => {
         this.favoritesSelected = !this.favoritesSelected;
         this.handleEvent(event);
         console.log(`${this.movieDetails.title} removed from favorites`);
       }, error => {
-        this.error = error;
         console.log('something went wrong', error);
       });
   }
 
   addMovieToFavorites(event: any): void {
-    this.error = null;
     const movie = this.createMovie();
     this.movieService.addMovieToFavorites(this.loggedUser.id, movie)
       .subscribe(() => {
@@ -133,18 +125,17 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
         this.handleEvent(event);
         console.log(`${this.movieDetails.title} added to favorites`);
       }, error => {
-        this.error = error;
         console.log('something went wrong', error);
       });
   }
 
-  createMovie(): Movie {
+  private createMovie(): Movie {
     return {
       id: this.movieDetails.id,
       title: this.movieDetails.title,
-      poster_path: this.movieDetails.poster_path,
-      release_date: this.movieDetails.release_date,
-      vote_average: this.movieDetails.vote_average
+      poster_path: this.movieDetails.poster_path ? this.movieDetails.poster_path : null,
+      release_date: this.movieDetails.release_date ? this.movieDetails.release_date : null,
+      vote_average: this.movieDetails.vote_average ? this.movieDetails.vote_average : null
     };
   }
 
