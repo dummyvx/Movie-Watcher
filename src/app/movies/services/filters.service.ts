@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
+import {Category} from '../models/category';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FiltersService {
 
-  category: string;
-  sortingExpanded: boolean;
-  filtersExpanded: boolean;
+  categoryEmitter = new BehaviorSubject<string>(Category.Popular);
+  sortingActivatedEmitter = new BehaviorSubject<boolean>(false);
+  filteringActivatedEmitter = new BehaviorSubject<boolean>(false);
 
-  constructor() { }
+  constructor() {}
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {debounceTime, distinctUntilChanged, distinctUntilKeyChanged, switchMap, tap} from 'rxjs/operators';
-import {BehaviorSubject, Subject} from 'rxjs';
+import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
+import {Subject} from 'rxjs';
 import { MovieService } from '../../services/movie.service';
 
 @Component({

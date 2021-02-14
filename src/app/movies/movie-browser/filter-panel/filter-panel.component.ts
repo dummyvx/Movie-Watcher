@@ -47,12 +47,12 @@ export class FilterPanelComponent implements OnInit   {
 
   toggleSort(): void {
     this.sortExpanded = !this.sortExpanded;
-    this.filterService.sortingExpanded = this.sortExpanded;
+    this.filterService.sortingActivatedEmitter.next(this.sortExpanded);
   }
 
   toggleFilters(): void {
     this.filterExpanded = !this.filterExpanded;
-    this.filterService.filtersExpanded = this.filterExpanded;
+    this.filterService.filteringActivatedEmitter.next(this.filterExpanded);
   }
 
   onButtonClicked(genreId: string, event): void {
@@ -70,21 +70,6 @@ export class FilterPanelComponent implements OnInit   {
 
   onMouseOut(event): void {
     event.target.classList.remove('no-hover');
-  }
-
-  reset(): void {
-    if (this.selectedButton === 'popular') {
-      // this.movieService.resetUrlParams();
-      this.voteCount = 0;
-      this.genres = [];
-    } else if (this.selectedButton === 'now playing') {
-      console.log();
-    }
-
-    this.movieService.urlParams.withGenres = '';
-    console.log(this.movieService.urlParams);
-    console.log(this.selectedButton);
-    console.log(this.voteCount);
   }
 
   applyFilters(): void {

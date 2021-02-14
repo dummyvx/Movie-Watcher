@@ -33,13 +33,16 @@ export class MovieBrowserComponent implements OnInit {
     this.toDate = this.movieService.urlParams.releaseDateLte;
     this.voteCount = this.movieService.urlParams.voteCountGte;
     this.selectedCategory = this.movieService.urlParams.sortCategory;
-    this.sortExpanded = this.filterService.sortingExpanded ? this.filterService.sortingExpanded : false;
-    this.filterExpanded = this.filterService.filtersExpanded ? this.filterService.filtersExpanded : false;
-    this.selectedButton = this.filterService.category ? this.filterService.category : Category.Popular;
+    // this.sortExpanded = this.filterService.sortingActivatedEmitter(next);
+    // this.filterExpanded = this.filterService.filteringActivatedEmitter ? this.filterService.filteringActivatedEmitter : false;
+    // this.selectedButton = this.filterService.categoryEmitter ? this.filterService.categoryEmitter : Category.Popular;
   }
 
   ngOnInit(): void {
     this.movies$ = this.movieService.getMovies$();
+    this.filterService.sortingActivatedEmitter.subscribe(activated => this.sortExpanded = activated);
+    this.filterService.filteringActivatedEmitter.subscribe(activated => this.filterExpanded = activated);
+    this.filterService.categoryEmitter.subscribe(category => this.selectedButton = category);
     this.movieService.getNowPlayingDates$().subscribe(data => this.nowPlayingDates = data);
     this.movieService.getUpcomingDates$().subscribe(data => this.upcomingDates = data);
     this.movieService.movies$.next([]);
@@ -60,7 +63,7 @@ export class MovieBrowserComponent implements OnInit {
       this.movieService.getUpcomingMovies(this.upcomingDates.minimum, this.upcomingDates.maximum);
     }
     this.selectedButton = category;
-    this.filterService.category = category;
+    this.filterService.categoryEmitter.next(category);
     this.selectedCategory = this.movieService.urlParams.sortCategory;
     this.fromDate = this.movieService.urlParams.releaseDateGte;
     this.toDate = this.movieService.urlParams.releaseDateLte;
