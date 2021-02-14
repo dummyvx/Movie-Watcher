@@ -22,6 +22,7 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { FavoritesComponent } from './favorites/favorites.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { SearchPageComponent } from './movie-browser/search-page/search-page.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MovieCastComponent,
     MovieRatingComponent,
     WatchlistComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    SearchPageComponent
   ],
   exports: [
     MovieSearchComponent,

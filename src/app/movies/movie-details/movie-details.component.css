@@ -1,6 +1,7 @@
 .movie-details-container {
   display: flex;
   flex-direction: column;
+
 }
 
 .movie-info-container {

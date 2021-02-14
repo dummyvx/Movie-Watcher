@@ -19,6 +19,10 @@
   justify-content: center;
 }
 
+.load-more {
+  width: 70%;
+}
+
 /*@media screen and (max-width: 1030px) {*/
 /*  .movie-list-container  {*/
 /*    width: 70vw;*/

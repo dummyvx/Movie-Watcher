@@ -4,7 +4,6 @@ import {MovieService} from '../services/movie.service';
 import {MovieDetails} from '../models/movie-details';
 import {Person} from '../models/person';
 import {Movie} from '../models/movie';
-import {take, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-movie-details',
@@ -24,15 +23,15 @@ export class MovieDetailsComponent implements OnInit {
     this.isLoading = true;
     const id = +this.route.snapshot.paramMap.get('id');
     this.movieService.getMovieDetails$(id)
-      .pipe(
-        take(1),
-        tap(data => {
-          this.movieDetails = data;
-          this.cast = data.credits.cast;
-          this.similarMovies = data.similar;
-          this.isLoading = false;
-        })
-      ).subscribe();
+      .subscribe(data => {
+        this.movieDetails = data;
+        this.cast = data.credits.cast;
+        this.similarMovies = data.similar;
+        this.isLoading = false;
+      }, error =>  {
+        this.isLoading = false;
+        console.log('something went wrong', error);
+      });
   }
 
 }

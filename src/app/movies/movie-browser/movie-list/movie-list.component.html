@@ -3,22 +3,26 @@
 </ng-container>
 
 <div class="movie-list-container" *ngIf="genres$ | async as genres" [class.justified]="justified">
-    <app-movie-card (toBeDeletedMovieId)="remove($event)"  *ngFor="let movie of movies"
-                    [genres]="genres" [movie]="movie">
-    </app-movie-card>
+    <ng-container *ngIf="!movieService.isLoading">
+      <app-movie-card (toBeDeletedMovieId)="remove($event)"  *ngFor="let movie of movies"
+                      [genres]="genres" [movie]="movie" >
+      </app-movie-card>
+    </ng-container>
+
     <ng-container *ngIf="!movieService.isLoading">
       <ng-container *ngIf="movies.length; else noMovies">
-        <button *ngIf="movies.length >= 20 && currentUrl === 'movies'"
+        <button *ngIf="movies.length >= 20 && currentUrl === 'movies' || currentUrl === 'search'"
                 [disabled]="noMoreMovies"
                 [class.btn-disabled]="noMoreMovies"
-                class="btn btn-action fade-in" (click)="loadMore()">{{ noMoreMovies ? 'No More Data' : 'Load More'}}
+                class="btn btn-action fade-in load-more" (click)="loadMore()">{{ noMoreMovies ? 'No More Data' : 'Load More'}}
         </button>
       </ng-container>
     </ng-container>
 </div>
 
 <ng-template #noMovies>
-  <p class="no-movies" *ngIf="currentUrl === 'movies'">No movies matching these search criteria</p>
+  <p class="no-movies" *ngIf="currentUrl === 'movies' || currentUrl === 'search'">No movies matching these search criteria</p>
   <p class="no-movies" *ngIf="currentUrl === 'favorites'">You haven't added any films to your favorites</p>
   <p class="no-movies" *ngIf="currentUrl === 'watchlist'">You haven't added any films to your watchlist</p>
 </ng-template>
+
