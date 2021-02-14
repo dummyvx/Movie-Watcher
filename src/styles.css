@@ -130,6 +130,10 @@ img.no-image {
   background: white;
 }
 
+.hidden {
+  display: none
+}
+
 /*@media screen and (max-width: 875px) {*/
 /*    .btn-selected {*/
 /*        font-size: .875rem;*/

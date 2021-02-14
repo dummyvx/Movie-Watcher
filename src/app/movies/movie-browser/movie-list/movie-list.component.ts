@@ -19,11 +19,13 @@ export class MovieListComponent implements OnInit, OnChanges {
   currentUrl: string;
   @Output()
   toBeDeletedMovieId = new EventEmitter<number>();
+  justified: boolean;
 
   constructor(public movieService: MovieService, private route: ActivatedRoute) { }
 
   ngOnChanges(): void {
     this.noMoreMovies = this.movieService.pageNumber === this.movieService.totalPages;
+    this.movieService.searchMode.subscribe(mode => this.justified = mode);
   }
 
   ngOnInit(): void {
@@ -34,7 +36,7 @@ export class MovieListComponent implements OnInit, OnChanges {
   loadMore(): void {
     this.movieService.urlParams.pageNumber++;
     if (this.movieService.searchMode) {
-      this.movieService.searchMovies(this.movieService.searchTerm);
+      this.movieService.searchMovies(this.movieService.searchTerm.getValue());
     } else {
       this.movieService.getMovies();
     }

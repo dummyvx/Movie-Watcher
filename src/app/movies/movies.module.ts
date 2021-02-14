@@ -37,6 +37,10 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     WatchlistComponent,
     FavoritesComponent
   ],
+  exports: [
+    MovieSearchComponent,
+    MovieListComponent
+  ],
   imports: [
     FormsModule,
     MatFormFieldModule,

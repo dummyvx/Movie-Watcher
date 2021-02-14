@@ -24,7 +24,11 @@ const routes: Routes = [
     path: 'favorites',
     component: FavoritesComponent,
     canActivate: [AuthGuard]
-  }
+  },
+  // {
+  //   path: 'search',
+  //   component: SearchPageComponent,
+  // }
 ];
 
 @NgModule({

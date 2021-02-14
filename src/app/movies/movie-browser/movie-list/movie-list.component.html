@@ -2,7 +2,7 @@
   <app-loading-spinner></app-loading-spinner>
 </ng-container>
 
-<div class="movie-list-container" *ngIf="genres$ | async as genres">
+<div class="movie-list-container" *ngIf="genres$ | async as genres" [class.justified]="justified">
     <app-movie-card (toBeDeletedMovieId)="remove($event)"  *ngFor="let movie of movies"
                     [genres]="genres" [movie]="movie">
     </app-movie-card>

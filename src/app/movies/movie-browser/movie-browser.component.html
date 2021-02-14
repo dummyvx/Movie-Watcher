@@ -1,5 +1,5 @@
 <app-movie-search></app-movie-search>
-<div class="filter-buttons">
+<div class="filter-buttons" [class.hidden]="filtersHidden">
     <button  class="btn" [class.btn-selected]="selectedButton === eCategory.Popular"
         (click)="onButtonClicked(eCategory.Popular)">
         Popular
@@ -19,6 +19,7 @@
 </div>
 <div class="main-section">
     <app-filter-panel
+      [class.hidden]="filtersHidden"
       [sortCategory]="selectedCategory"
       [fromDate]="fromDate"
       [toDate]="toDate"

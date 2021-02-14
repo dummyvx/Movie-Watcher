@@ -26,6 +26,7 @@ export class MovieBrowserComponent implements OnInit {
   sortExpanded: boolean;
   filterExpanded: boolean;
   eCategory = Category;
+  filtersHidden: boolean;
 
   constructor(public movieService: MovieService, private filterService: FiltersService) {
     this.releaseType = this.movieService.urlParams.withReleaseType;
@@ -33,9 +34,6 @@ export class MovieBrowserComponent implements OnInit {
     this.toDate = this.movieService.urlParams.releaseDateLte;
     this.voteCount = this.movieService.urlParams.voteCountGte;
     this.selectedCategory = this.movieService.urlParams.sortCategory;
-    // this.sortExpanded = this.filterService.sortingActivatedEmitter(next);
-    // this.filterExpanded = this.filterService.filteringActivatedEmitter ? this.filterService.filteringActivatedEmitter : false;
-    // this.selectedButton = this.filterService.categoryEmitter ? this.filterService.categoryEmitter : Category.Popular;
   }
 
   ngOnInit(): void {
@@ -43,6 +41,7 @@ export class MovieBrowserComponent implements OnInit {
     this.filterService.sortingActivatedEmitter.subscribe(activated => this.sortExpanded = activated);
     this.filterService.filteringActivatedEmitter.subscribe(activated => this.filterExpanded = activated);
     this.filterService.categoryEmitter.subscribe(category => this.selectedButton = category);
+    this.filterService.allFiltersHiddenEmitter.subscribe(hidden => this.filtersHidden = hidden);
     this.movieService.getNowPlayingDates$().subscribe(data => this.nowPlayingDates = data);
     this.movieService.getUpcomingDates$().subscribe(data => this.upcomingDates = data);
     this.movieService.movies$.next([]);

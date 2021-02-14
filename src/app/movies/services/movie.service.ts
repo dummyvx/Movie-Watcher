@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Observable, BehaviorSubject, pipe} from 'rxjs';
+import {Observable, BehaviorSubject, pipe, Subject} from 'rxjs';
 import { map, shareReplay, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Genre } from '../models/genre';
@@ -40,14 +40,14 @@ export class MovieService {
   nowPlayingMoviesUrl = `${environment.tmdb_base_url}/movie/now_playing?api_key=${environment.api_key}`;
   upcomingMoviesUrl = `${environment.tmdb_base_url}/movie/upcoming?api_key=${environment.api_key}`;
   movieDetailsUrl = `${environment.tmdb_base_url}/movie`;
-  searchMode: boolean;
+  searchMode = new Subject<boolean>();
   isLoading = false;
-  searchTerm: string;
+  searchTerm = new BehaviorSubject<string>('');
 
   constructor(private http: HttpClient) {}
 
   getMovies(): void {
-    this.searchMode = false;
+    this.searchMode.next(false);
     this.isLoading = true;
     this.http.get<any>(`${this.moviesDiscoverUrl}${this.buildUrlParams()}`)
       .pipe(
@@ -58,7 +58,7 @@ export class MovieService {
   }
 
   searchMovies(searchTerm: string): void {
-    this.searchMode = true;
+    this.searchMode.next(true);
     this.isLoading = true;
     this.http.get<any>(`${this.moviesSearchUrl}&query=${searchTerm}&page=${this.urlParams.pageNumber}`)
       .pipe(

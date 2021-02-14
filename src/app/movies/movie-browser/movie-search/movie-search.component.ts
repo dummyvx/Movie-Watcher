@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import { MovieService } from '../../services/movie.service';
+import {UrlParameters} from '../../models/url-parameters';
+import {FiltersService} from '../../services/filters.service';
 
 @Component({
   selector: 'app-movie-search',
@@ -11,19 +13,19 @@ import { MovieService } from '../../services/movie.service';
 export class MovieSearchComponent implements OnInit {
 
   private searchTerm = new Subject<string>();
+  value = '';
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService, private filtersService: FiltersService) {}
 
   ngOnInit(): void {
+    this.value = this.movieService.searchTerm.getValue();
+    if (this.movieService.searchTerm.getValue()) {
+      this.movieService.searchMovies(this.value);
+    }
+
     this.searchTerm.pipe(
-      // wait 300ms after each keystroke before considering the term
       debounceTime(300),
-
-      // ignore new term if same as previous term
       distinctUntilChanged(),
-
-
-      // switch to new search observable each time the term changes
       switchMap(async (searchTerm) => {
           this.movieService.movies$.next([]);
           this.movieService.searchMovies(searchTerm);
@@ -34,12 +36,14 @@ export class MovieSearchComponent implements OnInit {
 
   search(term: string): void {
     if (term.length > 1) {
-      this.movieService.searchTerm = term;
-      this.movieService.urlParams.pageNumber = 1;
+      this.filtersService.allFiltersHiddenEmitter.next(true);
+      this.movieService.searchTerm.next(term);
+      this.movieService.urlParams.pageNumber = UrlParameters.DEFAULT_PAGE_NUMBER;
       this.searchTerm.next(term);
     } else if (term.length === 0) {
       this.movieService.movies$.next([]);
-      setTimeout(() => this.movieService.getMovies(), 1000);
+      this.filtersService.allFiltersHiddenEmitter.next(false);
+      setTimeout(() => this.movieService.getMovies(), 700);
     }
   }
 
