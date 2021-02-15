@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Observable, BehaviorSubject, pipe, Subject} from 'rxjs';
-import { map, shareReplay, tap } from 'rxjs/operators';
+import {Observable, BehaviorSubject, pipe, Subject, of} from 'rxjs';
+import {catchError, map, shareReplay, tap} from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Genre } from '../models/genre';
 import { Movie } from '../models/movie';
@@ -34,13 +34,15 @@ export class MovieService {
   upcomingDates$: Observable<Dates>;
   pageNumber: number;
   totalPages: number;
+  currentPageSize: number;
+  totalResults: number;
   genresUrl = `${environment.tmdb_base_url}/genre/movie/list?api_key=${environment.api_key}`;
   moviesDiscoverUrl = `${environment.tmdb_base_url}/discover/movie?`;
   moviesSearchUrl = `${environment.tmdb_base_url}/search/movie?api_key=${environment.api_key}`;
   nowPlayingMoviesUrl = `${environment.tmdb_base_url}/movie/now_playing?api_key=${environment.api_key}`;
   upcomingMoviesUrl = `${environment.tmdb_base_url}/movie/upcoming?api_key=${environment.api_key}`;
   movieDetailsUrl = `${environment.tmdb_base_url}/movie`;
-  searchMode = new Subject<boolean>();
+  searchMode = new BehaviorSubject<boolean>(false);
   isLoading = false;
   searchTerm = new BehaviorSubject<string>('');
 
@@ -64,6 +66,11 @@ export class MovieService {
       .pipe(
         tap(data => {
           this.handleData(data);
+        }),
+        catchError(err => {
+          console.log(err);
+          this.isLoading = false;
+          return of(false);
         })
       ).subscribe();
   }
@@ -71,11 +78,18 @@ export class MovieService {
   handleData(data: any): void {
     this.pageNumber = data.page;
     this.totalPages = data.total_pages;
-    if (this.pageNumber === 1) {
-      this.movies$.next(data.results);
-    } else {
-      this.movies$.next([...this.movies$.getValue(), ...data.results]);
-    }
+    this.currentPageSize = data.results.length;
+    this.totalResults = data.total_results;
+    this.movies$.next(data.results);
+    console.log('pageNumber: ', this.pageNumber);
+    console.log('total pages', this.totalPages);
+    console.log('current page size', this.currentPageSize);
+    console.log('total results', this.totalResults);
+    // if (this.pageNumber === 1) {
+    //   this.movies$.next(data.results);
+    // } else {
+    //   this.movies$.next([...this.movies$.getValue(), ...data.results]);
+    // }
     this.isLoading = false;
   }
 

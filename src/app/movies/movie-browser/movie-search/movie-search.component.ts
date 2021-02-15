@@ -51,13 +51,14 @@ export class MovieSearchComponent implements OnInit {
       // this.movieService.searchTerm.next(term);
       // this.movieService.urlParams.pageNumber = UrlParameters.DEFAULT_PAGE_NUMBER;
       this.searchTerm.next(term);
+      this.movieService.urlParams.pageNumber = UrlParameters.DEFAULT_PAGE_NUMBER;
       this.movieService.searchTerm.next(term);
 
     } else if (term.length === 0) {
       this.movieService.movies$.next([]);
-      this.filtersService.allFiltersHiddenEmitter.next(false);
-      this.router.navigate(['/movies']);
-      setTimeout(() => this.movieService.getMovies(), 700);
+      // this.filtersService.allFiltersHiddenEmitter.next(false);
+      setTimeout(() => this.router.navigate(['/movies']), 700);
+      // setTimeout(() => this.movieService.getMovies(), 700);
     }
   }
 

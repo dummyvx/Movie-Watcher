@@ -17,6 +17,7 @@ export class SearchPageComponent implements OnInit {
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
+    this.movieService.urlParams.pageNumber = UrlParameters.DEFAULT_PAGE_NUMBER;
     this.movies$ = this.movieService.getMovies$();
     this.movieService.searchTerm.subscribe(searchTerm => this.searchValue = searchTerm);
     // this.movies$ = this.movieService.getMovies$();

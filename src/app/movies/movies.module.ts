@@ -23,6 +23,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { FavoritesComponent } from './favorites/favorites.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { SearchPageComponent } from './movie-browser/search-page/search-page.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { SearchPageComponent } from './movie-browser/search-page/search-page.com
     MovieRatingComponent,
     WatchlistComponent,
     FavoritesComponent,
-    SearchPageComponent
+    SearchPageComponent,
+
   ],
   exports: [
     MovieSearchComponent,
@@ -55,7 +58,9 @@ import { SearchPageComponent } from './movie-browser/search-page/search-page.com
     SharedModule,
     RouterModule,
     MatSlideToggleModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatPaginatorModule,
+    NgxPaginationModule
   ]
 })
 export class MoviesModule { }
