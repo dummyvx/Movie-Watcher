@@ -9,19 +9,21 @@ import { MoviesModule } from './movies/movies.module';
 import { AppRoutingModule } from './app-routing.module';
 import {TokenInterceptor} from './auth/token.interceptor';
 import {SharedModule} from './shared/shared.module';
+import {NotifierModule} from 'angular-notifier';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    MoviesModule,
-    SharedModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        MoviesModule,
+        SharedModule,
+        NotifierModule
+    ],
   providers: [ DatePipe,
     {
       provide: HTTP_INTERCEPTORS,

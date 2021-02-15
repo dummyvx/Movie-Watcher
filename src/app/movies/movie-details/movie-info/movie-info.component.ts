@@ -1,15 +1,15 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {MovieDetails} from '../../models/movie-details';
-import {MovieCredits} from '../../models/movie-credits';
 import {environment} from '../../../../environments/environment';
 import {Person} from '../../models/person';
 import {AuthService} from '../../../auth/services/auth.service';
-import {Observable, Subscription} from 'rxjs';
+import {Subscription} from 'rxjs';
 import {User} from '../../../auth/models/user';
 import {MovieService} from '../../services/movie.service';
 import {UserService} from '../../services/user.service';
 import {UserData} from '../../models/user-data';
 import {Movie} from '../../models/movie';
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'app-movie-info',
@@ -30,7 +30,8 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
 
   constructor(private authService: AuthService,
               private movieService: MovieService,
-              private userService: UserService) {}
+              private userService: UserService,
+              private notifierService: NotifierService) {}
 
   ngOnInit(): void {
     this.userSub = this.authService.loggedUser.subscribe(user => {
@@ -50,7 +51,11 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
         .subscribe(data => {
           this.userData = data;
           this.checkUserCollections(this.userData);
-        });
+        },
+          error => {
+            console.log('something went wrong', error);
+          }
+          );
     }
   }
 
@@ -86,9 +91,9 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
   removeMovieFromWatchlist(event): void {
     this.movieService.removeMovieFromWatchlist(this.loggedUser.id, this.movieDetails.id)
       .subscribe(() => {
-        console.log(`${this.movieDetails.title} removed from watchlist`);
         this.watchlistSelected = !this.watchlistSelected;
         this.handleEvent(event);
+        this.notifierService.notify('success', `"${this.movieDetails.title}" removed from watchlist`);
       }, error => {
         console.log('something went wrong', error);
       });
@@ -100,7 +105,7 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.watchlistSelected = !this.watchlistSelected;
         this.handleEvent(event);
-        console.log(`${this.movieDetails.title} added to watchlist`);
+        this.notifierService.notify('success', `"${this.movieDetails.title}" added to watchlist`);
       }, error => {
         console.log('something went wrong', error);
       });
@@ -111,7 +116,7 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.favoritesSelected = !this.favoritesSelected;
         this.handleEvent(event);
-        console.log(`${this.movieDetails.title} removed from favorites`);
+        this.notifierService.notify('success', `"${this.movieDetails.title}" removed from favorites`);
       }, error => {
         console.log('something went wrong', error);
       });
@@ -123,7 +128,7 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.favoritesSelected = !this.favoritesSelected;
         this.handleEvent(event);
-        console.log(`${this.movieDetails.title} added to favorites`);
+        this.notifierService.notify('success', `"${this.movieDetails.title}" added to favorites`);
       }, error => {
         console.log('something went wrong', error);
       });

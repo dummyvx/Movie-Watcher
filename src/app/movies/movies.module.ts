@@ -25,6 +25,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { SearchPageComponent } from './movie-browser/search-page/search-page.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {NotifierModule} from 'angular-notifier';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MatSlideToggleModule,
     MatTooltipModule,
     MatPaginatorModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ]
 })
 export class MoviesModule { }
