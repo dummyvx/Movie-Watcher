@@ -81,15 +81,6 @@ export class MovieService {
     this.currentPageSize = data.results.length;
     this.totalResults = data.total_results;
     this.movies$.next(data.results);
-    console.log('pageNumber: ', this.pageNumber);
-    console.log('total pages', this.totalPages);
-    console.log('current page size', this.currentPageSize);
-    console.log('total results', this.totalResults);
-    // if (this.pageNumber === 1) {
-    //   this.movies$.next(data.results);
-    // } else {
-    //   this.movies$.next([...this.movies$.getValue(), ...data.results]);
-    // }
     this.isLoading = false;
   }
 
@@ -144,8 +135,6 @@ export class MovieService {
   getPopularMovies(): void {
     this.movies$.next([]);
     this.getMovies();
-    console.log('inside get popular movies');
-    console.log(this.urlParams);
   }
 
   getTopRatedMovies(): void {
@@ -153,8 +142,6 @@ export class MovieService {
     this.urlParams.sortCategory = UrlParameters.VOTE_AVG_DESC;
     this.urlParams.voteCountGte = UrlParameters.MINIMUM_VOTE_COUNT;
     this.getMovies();
-    console.log('inside get top rated movies');
-    console.log(this.urlParams);
   }
 
   getNowPlayingMovies(fromDate: string, toDate: string): void  {
@@ -163,8 +150,6 @@ export class MovieService {
     this.urlParams.releaseDateLte = toDate;
     this.urlParams.withReleaseType = UrlParameters.THEATRICAL_RELEASE;
     this.getMovies();
-    console.log('inside get top now playing movies');
-    console.log(this.urlParams);
   }
 
   getUpcomingMovies(fromDate: string, toDate: string): void {
@@ -173,8 +158,6 @@ export class MovieService {
     this.urlParams.releaseDateLte = toDate;
     this.urlParams.withReleaseType = UrlParameters.THEATRICAL_RELEASE;
     this.getMovies();
-    console.log('inside get top upcoming movies');
-    console.log(this.urlParams);
   }
 
   getGenres$(): Observable<Genre[]> {
