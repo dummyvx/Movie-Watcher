@@ -20,13 +20,16 @@ h2 {
 }
 
 .form-container {
-
   background: var(--clr-bg-secondary);
   border-radius: var(--border-radius);
   min-width: 10rem;
   max-width: 25rem;
   width: 100%;
   padding: 1.2rem 1.8rem;
+}
+
+[class~='mat-form-field']:not(:last-of-type)  {
+  margin-bottom: .6rem;
 }
 
 .cta {
@@ -50,4 +53,13 @@ span:hover {
 
 .form-field {
   width: 100%;
+}
+
+.disabled {
+  cursor: default;
+  background-color: var(--clr-red);
+}
+
+::ng-deep .mat-form-field-required-marker {
+  color: var(--clr-red)
 }

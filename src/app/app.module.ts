@@ -9,7 +9,6 @@ import { MoviesModule } from './movies/movies.module';
 import { AppRoutingModule } from './app-routing.module';
 import {TokenInterceptor} from './auth/token.interceptor';
 import {SharedModule} from './shared/shared.module';
-import {NotifierModule} from 'angular-notifier';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import {NotifierModule} from 'angular-notifier';
         AppRoutingModule,
         HttpClientModule,
         MoviesModule,
-        SharedModule,
-        NotifierModule
+        SharedModule
     ],
   providers: [ DatePipe,
     {
