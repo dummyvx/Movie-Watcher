@@ -12,6 +12,13 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
+    position: relative;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  flex-grow: .5;
 }
 
 .logo {
@@ -20,6 +27,7 @@
     outline: none;
     font-weight: bold;
     transition: var(--transition);
+    margin-right: 1rem;
 }
 
 .logo:hover {
@@ -45,17 +53,15 @@
 .menu-item {
   outline: none;
   transition: var(--transition);
-  padding: .3em;
 }
 
 .menu-item:hover {
   color: var(--clr-white);
   cursor: pointer;
-
 }
 
 .menu-item:not(:last-child) {
-    margin-right: 1.5rem;
+    margin-right: 1rem;
 }
 
 .btn-action {
@@ -67,14 +73,100 @@
   /*border: 1px solid var(--clr-white);*/
   /*padding: .3em;*/
   /*border-radius: 5px;*/
+  /*border-bottom: 1px solid #fff;*/
+  border-bottom: 1px solid #fff;
+  padding-bottom: .2rem;
 }
 
 app-movie-search {
-  flex-grow: .8;
+  flex-grow: 1;
 }
 
-@media screen and (max-width: 630px) {
-  .menu {
+.menu-btn {
+  position: absolute;
+  right: 1rem;
+  top: 1.2rem;
+  height: 20px;
+  width: 28px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.burger {
+  position: absolute;
+  right: 0;
+  top: 1.2rem;
+  width: 28px;
+  height: 3px;
+  background-color: var(--clr-grey);
+  transition: var(--transition);
+}
+
+.burger::before, .burger::after {
+  content: '';
+  position: absolute;
+  background-color: var(--clr-grey);
+  width: 28px;
+  height: 3px;
+  transition: var(--transition);
+}
+
+.burger::before {
+  top: -8px;
+}
+
+.burger::after {
+  top: 8px;
+}
+
+.open .burger {
+  background: transparent;
+}
+
+.open .burger::before {
+  transform: rotate(45deg) translate(5px, 8px);
+}
+
+.open .burger::after {
+  transform: rotate(-45deg) translate(3px, -7px);
+}
+
+.hide-desktop {
+  display: none;
+}
+
+/*.menu.open {*/
+/*  !*flex-direction: column;*!*/
+/*  background-color: var(--clr-bg-primary);*/
+/*  !*justify-content: center;*!*/
+/*  height: 100vh;*/
+/*  !*overflow: hidden;*!*/
+/*  !*transform: translateY(-100%);*!*/
+/*  !*display: block;*!*/
+/*}*/
+
+@media screen and (max-width: 940px) {
+  .hide-mobile {
     display: none;
   }
+  .show-mobile {
+    display: block;
+  }
+  .logo-wrapper {
+    flex-grow: .3;
+  }
 }
+
+@media screen and (max-width: 640px) {
+  .logo {
+    display: none;
+  }
+
+  .logo-wrapper {
+    flex: .8;
+  }
+}
+
+
+
+

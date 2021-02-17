@@ -28,15 +28,15 @@
   font-size: 1.2em;
 }
 
-@media screen and (max-width: 875px) {
-  .search-bar {
-    font-size: 1.1em;
-  }
-}
+/*@media screen and (max-width: 875px) {*/
+/*  .search-bar {*/
+/*    font-size: 1.1em;*/
+/*  }*/
+/*}*/
 
-@media screen and (max-width: 550px) {
-  .input-container {
-    width: 100%;
-  }
-}
+/*@media screen and (max-width: 550px) {*/
+/*  .input-container {*/
+/*    width: 100%;*/
+/*  }*/
+/*}*/
 

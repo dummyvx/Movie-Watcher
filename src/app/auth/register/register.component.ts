@@ -64,6 +64,8 @@ export class RegisterComponent implements OnInit {
           console.log('Your account is created. Please log in');
           this.router.navigate(['/auth/login']);
         }
+      }, error => {
+        this.notifierService.notify('error', error.error);
       });
   }
 

@@ -34,16 +34,22 @@ app-movie-list {
   display: none;
 }
 
-/*@media screen and (max-width: 1030px) {*/
-/*  app-filter-panel {*/
-/*    width: 350px;*/
-/*    margin: 0 auto 1.4em;*/
-/*  }*/
+@media screen and (max-width: 710px) {
+  .main-section {
+    flex-direction: column;
+    align-items: center;
 
-/*  .main-section {*/
-/*    flex-direction: column;*/
-/*  }*/
-/*}*/
+  }
+
+  app-filter-panel {
+    margin-bottom: 1rem;
+  }
+
+  .filter-buttons {
+    font-size: .9rem;
+  }
+
+}
 
 /*@media screen and (max-width: 1003px) {*/
 /*  app-movie-list {*/

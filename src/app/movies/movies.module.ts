@@ -4,7 +4,7 @@ import {FilterPanelComponent} from './movie-browser/filter-panel/filter-panel.co
 import {MovieListComponent} from './movie-browser/movie-list/movie-list.component';
 import {MovieCardComponent} from './movie-browser/movie-list/movie-card/movie-card.component';
 import {MovieDetailsComponent} from './movie-details/movie-details.component';
-import {MovieSearchComponent} from './movie-browser/movie-search/movie-search.component';
+import {SearchBarComponent} from './movie-browser/search-bar/search-bar.component';
 import {MovieInfoComponent} from './movie-details/movie-info/movie-info.component';
 import {MovieCastComponent} from './movie-details/movie-cast/movie-cast.component';
 import {MovieRatingComponent} from './movie-browser/movie-list/movie-card/movie-rating/movie-rating.component';
@@ -25,7 +25,6 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { SearchPageComponent } from './movie-browser/search-page/search-page.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {NgxPaginationModule} from 'ngx-pagination';
-import {NotifierModule} from 'angular-notifier';
 
 @NgModule({
   declarations: [
@@ -34,7 +33,7 @@ import {NotifierModule} from 'angular-notifier';
     MovieListComponent,
     MovieCardComponent,
     MovieDetailsComponent,
-    MovieSearchComponent,
+    SearchBarComponent,
     MovieInfoComponent,
     MovieCastComponent,
     MovieRatingComponent,
@@ -44,7 +43,7 @@ import {NotifierModule} from 'angular-notifier';
 
   ],
   exports: [
-    MovieSearchComponent,
+    SearchBarComponent,
     MovieListComponent
   ],
   imports: [

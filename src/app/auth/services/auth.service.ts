@@ -6,6 +6,7 @@ import {HttpClient} from '@angular/common/http';
 import {ResponseData} from '../models/response-data';
 import {User} from '../models/user';
 import {NotifierService} from 'angular-notifier';
+import {ErrorMessages} from '../../shared/error-messages';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +40,12 @@ export class AuthService {
         }),
         mapTo(true),
         catchError(error => {
-          console.log(error.error);
+          if (error.status === 401) {
+            this.notifierService.notify('error', error.error);
+          } else {
+            this.notifierService.notify('error', ErrorMessages.UNKNOWN_ERROR);
+          }
+
           this.isLoading = false;
           return of(false);
         }));

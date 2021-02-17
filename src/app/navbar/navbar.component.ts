@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   isAuthenticated = false;
   private userSub: Subscription;
+  isOpen = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -33,6 +34,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.userSub.unsubscribe();
+  }
+
+  toggleMenuBtn(): void {
+    this.isOpen = !this.isOpen;
   }
 
 }

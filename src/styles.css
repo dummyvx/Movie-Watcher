@@ -10,7 +10,8 @@
     --ff-primary: "Roboto", sans-serif;
     --max-width: 1170px;
     --border-radius: 12px;
-    --transition: all 0.2s linear;
+    /*--transition: all 0.2s linear;*/
+    --transition:  all 0.3s ease-in;
 }
 
 *, ::after, ::before {
@@ -39,7 +40,7 @@ body {
     color: var(--clr-grey);
     background: var(--clr-bg-secondary);
     font-family: inherit;
-    font-size: inherit;
+    font-size: .9rem;
     padding: .4em 1em;
     transition: var(--transition);
 
@@ -134,6 +135,37 @@ img.no-image {
   display: none
 }
 
+@media screen and (max-width: 1200px) {
+  .container {
+    max-width:  1060px;
+  }
+}
+
+
+@media screen and (max-width: 1130px) {
+  .container {
+    max-width:  950px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    max-width:  900px;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .container {
+    max-width:  700px;
+  }
+}
+
+/*@media screen and (max-width: 830px) {*/
+/*  .container {*/
+/*    max-width:  700px;*/
+/*  }*/
+/*}*/
+
 /*@media screen and (max-width: 875px) {*/
 /*    .btn-selected {*/
 /*        font-size: .875rem;*/
@@ -163,6 +195,13 @@ img.no-image {
 /*    }*/
 
 /*}*/
+
+@media screen and (max-width: 530px) {
+  .btn {
+    font-size: .8em;
+  }
+}
+
 
 .mat-tooltip.tooltip {
   font-size: .8rem;

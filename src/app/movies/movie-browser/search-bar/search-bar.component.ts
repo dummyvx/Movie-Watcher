@@ -9,10 +9,10 @@ import {Movie} from '../../models/movie';
 
 @Component({
   selector: 'app-movie-search',
-  templateUrl: './movie-search.component.html',
-  styleUrls: ['./movie-search.component.css']
+  templateUrl: './search-bar.component.html',
+  styleUrls: ['./search-bar.component.css']
 })
-export class MovieSearchComponent implements OnInit {
+export class SearchBarComponent implements OnInit {
 
   private searchTerm = new Subject<string>();
   value = '';

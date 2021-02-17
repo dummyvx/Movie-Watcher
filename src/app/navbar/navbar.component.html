@@ -1,32 +1,39 @@
 <nav class="navbar">
   <div class="container">
-<!--    <div>-->
+    <div class="logo-wrapper">
       <h1 routerLink="/movies" class="logo"><span id="white-logo">Movie</span><span id="red-logo">Watcher</span></h1>
       <app-movie-search></app-movie-search>
-<!--    </div>-->
+    </div>
 
-    <ul class="menu">
-      <li routerLink="/movies"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          class="menu-item">
-        <i class="fas fa-film"></i> Movies
-      </li>
-      <li *ngIf="isAuthenticated"
-          routerLink="/watchlist"
-          routerLinkActive="active"
-          class="menu-item"><i class="far fa-bookmark"> </i> Watchlist
-      </li>
-      <li *ngIf="isAuthenticated"
-          routerLink="/favorites"
-          routerLinkActive="active"
-          class="menu-item"><i class="far fa-heart"></i> Favorites
-      </li>
-      <li *ngIf="!isAuthenticated"
-          routerLink="/auth/login"
-          class="btn btn-action"> Login
-      </li>
-      <li *ngIf="isAuthenticated" class="btn btn-action" (click)="onLogout()"> Logout</li>
-    </ul>
+    <div class="menu-btn hide-desktop show-mobile" (click)="toggleMenuBtn()" [class.open]="isOpen">
+      <span class="burger"></span>
+    </div>
+    <nav>
+      <ul class="menu hide-mobile show-desktop" [class.open]="isOpen">
+        <li routerLink="/movies"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="menu-item">Movies
+        </li>
+        <li *ngIf="isAuthenticated"
+            routerLink="/watchlist"
+            routerLinkActive="active"
+            class="menu-item">Watchlist
+        </li>
+        <li *ngIf="isAuthenticated"
+            routerLink="/favorites"
+            routerLinkActive="active"
+            class="menu-item">Favorites
+        </li>
+        <li *ngIf="!isAuthenticated"
+            routerLink="/auth/login"
+            class="btn btn-action"> Login
+        </li>
+        <li *ngIf="isAuthenticated"
+            class="btn btn-action"
+            (click)="onLogout()"> Logout
+        </li>
+      </ul>
+    </nav>
   </div>
 </nav>

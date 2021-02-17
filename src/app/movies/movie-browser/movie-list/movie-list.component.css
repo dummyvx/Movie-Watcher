@@ -54,12 +54,15 @@
   color: var(--clr-grey);
 }
 
-/*@media screen and (max-width: 1030px) {*/
-/*  .movie-list-container  {*/
-/*    width: 70vw;*/
-/*    margin: 0 auto;*/
-/*  }*/
+/*.ngx-pagination .ng-star-inserted {*/
+/*  margin-top: 1rem;*/
 /*}*/
+
+@media screen and (max-width: 950px) {
+  .movie-list-container {
+    justify-content: center;
+  }
+}
 
 
 /*@media screen and (max-width: 942px) {*/

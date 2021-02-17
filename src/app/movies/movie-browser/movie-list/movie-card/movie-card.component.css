@@ -58,11 +58,30 @@
 }
 
 
-/*@media screen and (max-width: 1186px) {*/
-/*    .movie-card {*/
-/*        width: 180px;*/
-/*    }*/
-/*}*/
+@media screen and (max-width: 1200px) {
+    .movie-card {
+        width: 222px;
+    }
+}
+
+@media screen and (max-width: 1130px) {
+  .movie-card {
+    width: 185px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .movie-card {
+    width: 262px;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .movie-card {
+    width: 335px;
+    margin:  0 auto 1rem;
+  }
+}
 
 /*@media screen and (max-width: 1149px) {*/
 /*    .movie-card {*/
