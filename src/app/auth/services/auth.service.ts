@@ -5,6 +5,7 @@ import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {ResponseData} from '../models/response-data';
 import {User} from '../models/user';
+import {NotifierService} from 'angular-notifier';
 
 @Injectable({
   providedIn: 'root'
@@ -16,14 +17,14 @@ export class AuthService {
   loggedUser = new BehaviorSubject<User>(null);
   isLoading = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private notifierService: NotifierService) {}
 
   register(user: { email: string, password: string }): Observable<boolean> {
     return this.http.post<any>(`${environment.backend_base_url}/register`, user)
       .pipe(
         mapTo(true),
         catchError(error => {
-          alert(error.error);
+          console.log(error.error);
           return of(false);
         }));
   }
@@ -38,7 +39,7 @@ export class AuthService {
         }),
         mapTo(true),
         catchError(error => {
-          alert(error.error);
+          console.log(error.error);
           this.isLoading = false;
           return of(false);
         }));
@@ -105,6 +106,10 @@ export class AuthService {
     this.tokenExpirationTimer = setTimeout(() => {
       this.doLogoutUser();
     }, expirationDuration);
+  }
+
+  emailExists(emailDto: { email: string }): Observable<boolean> {
+    return this.http.post<boolean>(`${environment.backend_base_url}/email-check`, emailDto);
   }
 
   private saveUserData(user: User): void {

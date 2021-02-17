@@ -27,6 +27,7 @@
                  autocomplete="off"
                  matInput
                  formControlName="password"
+                 [errorStateMatcher]="matcher"
                  required>
           <mat-error *ngIf="loginForm.get('password').hasError('required')">
             Password is required
