@@ -46,6 +46,10 @@ body {
 
 }
 
+.btn-action {
+  font-size: 1rem;
+}
+
 .btn-selected, .btn-action {
     color: var(--clr-white);
     background: var(--clr-red);

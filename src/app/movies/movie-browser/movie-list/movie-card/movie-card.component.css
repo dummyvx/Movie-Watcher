@@ -44,14 +44,7 @@
     margin: .3em;
 }
 
-.fa-trash {
-  /*position: absolute;*/
-  /*top: .5rem;*/
-  /*right: .5rem;*/
-}
-
 .remove-btn {
-  /*border-radius: initial;*/
   margin-bottom: .8rem;
   text-align: center;
   margin-left: 1.2em;
@@ -82,31 +75,5 @@
     margin:  0 auto 1rem;
   }
 }
-
-/*@media screen and (max-width: 1149px) {*/
-/*    .movie-card {*/
-/*        width: 235px;*/
-/*    }*/
-/*}*/
-
-
-/*@media screen and (max-width: 940px) {*/
-/*  .movie-card {*/
-/*    width: 260px;*/
-/*  }*/
-/*}*/
-
-/*@media screen and (max-width: 798px) {*/
-/*  .movie-card {*/
-/*    margin-right: 0;*/
-/*    width: 280px;*/
-/*  }*/
-/*}*/
-/*@media screen and (max-width: 630px) {*/
-/*  .movie-card {*/
-/*    margin: 0 auto 1.2em;*/
-
-/*  }*/
-/*}*/
 
 
