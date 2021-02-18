@@ -83,7 +83,6 @@ export class FilterPanelComponent implements OnInit   {
       ? '' : this.datePipe.transform(this.toDate, 'yyyy-MM-dd');
     this.movieService.urlParams.voteCountGte = this.voteCount;
     this.movieService.getMovies();
-    console.log(this.movieService.urlParams);
   }
 
 }

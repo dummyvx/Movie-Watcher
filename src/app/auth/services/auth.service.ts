@@ -63,9 +63,9 @@ export class AuthService {
           this.doLogoutUser();
         }),
         mapTo(true),
-        catchError(error => {
+        catchError(() => {
           this.doLogoutUser();
-          alert(error.error);
+          this.notifierService.notify('error', ErrorMessages.UNKNOWN_ERROR);
           return of(false);
       }));
   }

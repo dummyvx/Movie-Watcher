@@ -1,16 +1,17 @@
 .movie-card {
-  width: 220px;
+  width: 203px;
+
 }
 
 @media screen and (max-width: 1200px) {
   .movie-card {
-    width: 250px;
+    width: 232px;
   }
 }
 
 @media screen and (max-width: 1130px) {
   .movie-card {
-    width: 185px;
+    width: 200px;
   }
 }
 
@@ -18,11 +19,20 @@
   .movie-card {
     width: 262px;
   }
+
+  .remove-btn {
+    margin-left: 1.2em;
+  }
+
 }
 
 @media screen and (max-width: 940px) {
   .movie-card {
-    width: 335px;
-    margin:  0 auto 1rem;
+    width: 270px;
+    margin-left: 1.2em;
+
+  }
+  .remove-btn {
+    margin-left: 1.2em;
   }
 }

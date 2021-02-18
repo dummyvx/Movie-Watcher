@@ -26,7 +26,7 @@ export class MovieDetailsComponent implements OnInit {
       .subscribe(data => {
         this.movieDetails = data;
         this.cast = data.credits.cast;
-        this.similarMovies = data.similar;
+        this.similarMovies = data.similar.results;
         this.isLoading = false;
       }, error =>  {
         this.isLoading = false;

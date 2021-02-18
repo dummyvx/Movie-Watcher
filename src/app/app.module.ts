@@ -15,19 +15,20 @@ import {SharedModule} from './shared/shared.module';
     AppComponent,
     NavbarComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        MoviesModule,
-        SharedModule
-    ],
-  providers: [ DatePipe,
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MoviesModule,
+    SharedModule
+  ],
+  providers: [DatePipe,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
     }],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
