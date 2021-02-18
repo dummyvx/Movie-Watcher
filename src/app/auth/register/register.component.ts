@@ -60,12 +60,8 @@ export class RegisterComponent implements OnInit {
     )
       .subscribe(success => {
         if (success) {
-          this.notifierService.notify('success', 'Your account is created. Please log in');
-          console.log('Your account is created. Please log in');
           this.router.navigate(['/auth/login']);
         }
-      }, error => {
-        this.notifierService.notify('error', error.error);
       });
   }
 

@@ -4,6 +4,9 @@ import {AuthService} from '../../auth/services/auth.service';
 import {User} from '../../auth/models/user';
 import {Subscription} from 'rxjs';
 import {MovieService} from '../services/movie.service';
+import {NotifierService} from 'angular-notifier';
+import {tap} from 'rxjs/operators';
+import {ErrorMessages} from '../../shared/error-messages';
 
 @Component({
   selector: 'app-favorites',
@@ -16,7 +19,9 @@ export class FavoritesComponent implements OnInit, OnDestroy {
   loggedUser: User;
   userSub: Subscription;
 
-  constructor(private authService: AuthService, private movieService: MovieService) { }
+  constructor(private authService: AuthService,
+              private movieService: MovieService,
+              private notifierService: NotifierService) { }
 
   ngOnInit(): void {
     this.userSub = this.authService.loggedUser.subscribe(user => {
@@ -37,10 +42,16 @@ export class FavoritesComponent implements OnInit, OnDestroy {
       });
   }
 
-  remove(movieId: number): void {
-    this.movieService.removeMovieFromFavorites(this.loggedUser.id, movieId)
+  remove(toBeDeletedMovie: Movie): void {
+    this.movieService.removeMovieFromFavorites(this.loggedUser.id, toBeDeletedMovie.id)
+      .pipe(
+        tap(() => this.notifierService.notify('success', `"${toBeDeletedMovie.title}" removed from favorites`)),
+      )
       .subscribe(() =>
-        this.favoriteMovies = this.favoriteMovies.filter(movie => movie.id !== movieId)
+        this.favoriteMovies = this.favoriteMovies.filter(movie => movie.id !== toBeDeletedMovie.id),
+        () => {
+          this.notifierService.notify('error', ErrorMessages.UNKNOWN_ERROR);
+        }
     );
   }
 

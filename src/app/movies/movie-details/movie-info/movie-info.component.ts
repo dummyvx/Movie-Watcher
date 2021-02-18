@@ -10,6 +10,7 @@ import {UserService} from '../../services/user.service';
 import {UserData} from '../../models/user-data';
 import {Movie} from '../../models/movie';
 import {NotifierService} from 'angular-notifier';
+import {ErrorMessages} from '../../../shared/error-messages';
 
 @Component({
   selector: 'app-movie-info',
@@ -52,8 +53,8 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
           this.userData = data;
           this.checkUserCollections(this.userData);
         },
-          error => {
-            console.log('something went wrong', error);
+          () => {
+            this.handleError();
           }
           );
     }
@@ -94,8 +95,8 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
         this.watchlistSelected = !this.watchlistSelected;
         this.handleEvent(event);
         this.notifierService.notify('success', `"${this.movieDetails.title}" removed from watchlist`);
-      }, error => {
-        console.log('something went wrong', error);
+      }, () => {
+        this.handleError();
       });
   }
 
@@ -106,8 +107,8 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
         this.watchlistSelected = !this.watchlistSelected;
         this.handleEvent(event);
         this.notifierService.notify('success', `"${this.movieDetails.title}" added to watchlist`);
-      }, error => {
-        console.log('something went wrong', error);
+      }, () => {
+        this.handleError();
       });
   }
 
@@ -117,8 +118,8 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
         this.favoritesSelected = !this.favoritesSelected;
         this.handleEvent(event);
         this.notifierService.notify('success', `"${this.movieDetails.title}" removed from favorites`);
-      }, error => {
-        console.log('something went wrong', error);
+      }, () => {
+        this.handleError();
       });
   }
 
@@ -129,8 +130,8 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
         this.favoritesSelected = !this.favoritesSelected;
         this.handleEvent(event);
         this.notifierService.notify('success', `"${this.movieDetails.title}" added to favorites`);
-      }, error => {
-        console.log('something went wrong', error);
+      }, () => {
+        this.handleError();
       });
   }
 
@@ -142,6 +143,10 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
       release_date: this.movieDetails.release_date ? this.movieDetails.release_date : null,
       vote_average: this.movieDetails.vote_average ? this.movieDetails.vote_average : null
     };
+  }
+
+  handleError(): void {
+    this.notifierService.notify('error', ErrorMessages.UNKNOWN_ERROR);
   }
 
   ngOnDestroy(): void {

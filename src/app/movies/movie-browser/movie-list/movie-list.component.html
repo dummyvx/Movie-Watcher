@@ -4,7 +4,7 @@
 
 <div class="movie-list-container" *ngIf="genres$ | async as genres" [class.justified]="justified">
     <ng-container *ngIf="!movieService.isLoading">
-      <app-movie-card (toBeDeletedMovieId)="remove($event)"
+      <app-movie-card (toBeDeletedMovie)="remove($event)"
                       *ngFor="let movie of movies | paginate: {
                       itemsPerPage: 20,
                       currentPage: movieService.pageNumber,

@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.router.navigate(['/movies']);
       }
     });
-    this.isOpen = !this.isOpen;
+    this.closeMenu();
   }
 
   ngOnDestroy(): void {
@@ -39,6 +39,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   toggleMenuBtn(): void {
     this.isOpen = !this.isOpen;
+  }
+
+  closeMenu(): void {
+    this.isOpen = false;
   }
 
 }

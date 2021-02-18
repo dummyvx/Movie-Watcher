@@ -17,7 +17,7 @@ export class MovieListComponent implements OnInit {
   genres$: Observable<Genre[]>;
   currentUrl: string;
   @Output()
-  toBeDeletedMovieId = new EventEmitter<number>();
+  toBeDeletedMovie = new EventEmitter<Movie>();
   justified: boolean;
 
   constructor(public movieService: MovieService, private route: ActivatedRoute) {}
@@ -27,8 +27,8 @@ export class MovieListComponent implements OnInit {
     this.currentUrl = this.route.snapshot.routeConfig.path;
   }
 
-  remove(movieId: number): void {
-    this.toBeDeletedMovieId.emit(movieId);
+  remove(toBeDeletedMovie: Movie): void {
+    this.toBeDeletedMovie.emit(toBeDeletedMovie);
   }
 
   getPage(page: number): void {

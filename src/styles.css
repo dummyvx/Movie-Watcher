@@ -164,12 +164,12 @@ img.no-image {
   }
 }
 
-@media screen and (max-width: 940px) {
-  body {
-    overflow: hidden !important;
-  }
+/*@media screen and (max-width: 940px) {*/
+/*  body {*/
+/*    overflow: hidden !important;*/
+/*  }*/
 
-}
+/*}*/
 
 /*@media screen and (max-width: 830px) {*/
 /*  .container {*/

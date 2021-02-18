@@ -23,9 +23,14 @@ export class AuthService {
   register(user: { email: string, password: string }): Observable<boolean> {
     return this.http.post<any>(`${environment.backend_base_url}/register`, user)
       .pipe(
+        tap(() => this.notifierService.notify('success', 'Your account was created. Please log in')),
         mapTo(true),
         catchError(error => {
-          console.log(error.error);
+          if (error.status === 400) {
+            this.handleError(error.error);
+          } else {
+            this.notifierService.notify('error', ErrorMessages.UNKNOWN_ERROR);
+          }
           return of(false);
         }));
   }
@@ -40,13 +45,13 @@ export class AuthService {
         }),
         mapTo(true),
         catchError(error => {
+          this.isLoading = false;
           if (error.status === 401) {
-            this.notifierService.notify('error', error.error);
+            this.handleError(error.error);
           } else {
             this.notifierService.notify('error', ErrorMessages.UNKNOWN_ERROR);
           }
 
-          this.isLoading = false;
           return of(false);
         }));
   }
@@ -124,6 +129,16 @@ export class AuthService {
 
   private removeUserData(): void {
     localStorage.removeItem(this.USER_DATA);
+  }
+
+  notify(message): void {
+    this.notifierService.notify('success', message);
+  }
+
+  handleError(error: string[]): void {
+    error.forEach(err => {
+      this.notifierService.notify('error', err);
+    });
   }
 
 }

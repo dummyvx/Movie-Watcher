@@ -12,25 +12,25 @@
       <ul class="menu hide-mobile" [class.show-menu]="isOpen">
         <li routerLink="/movies"
             routerLinkActive="active"
-            (click)="toggleMenuBtn()"
+            (click)="closeMenu()"
             [routerLinkActiveOptions]="{ exact: true }"
             class="menu-item">Movies
         </li>
         <li *ngIf="isAuthenticated"
             routerLink="/watchlist"
             routerLinkActive="active"
-            (click)="toggleMenuBtn()"
+            (click)="closeMenu()"
             class="menu-item">Watchlist
         </li>
         <li *ngIf="isAuthenticated"
             routerLink="/favorites"
             routerLinkActive="active"
-            (click)="toggleMenuBtn()"
+            (click)="closeMenu()"
             class="menu-item">Favorites
         </li>
         <li *ngIf="!isAuthenticated"
             routerLink="/auth/login"
-            (click)="toggleMenuBtn()"
+            (click)="closeMenu()"
             class="btn btn-action btn-login"> Login
         </li>
         <li *ngIf="isAuthenticated"

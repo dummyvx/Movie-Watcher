@@ -18,7 +18,7 @@ export class MovieCardComponent implements OnInit {
   @Input()
   movie: Movie;
   @Output()
-  toBeDeletedMovieId = new EventEmitter<number>();
+  toBeDeletedMovie = new EventEmitter<Movie>();
 
   currentUrl: string;
 
@@ -34,8 +34,8 @@ export class MovieCardComponent implements OnInit {
     }
   }
 
-  remove(movieId: number): void {
-    this.toBeDeletedMovieId.emit(movieId);
+  remove(toBeDeletedMovie: Movie): void {
+    this.toBeDeletedMovie.emit(toBeDeletedMovie);
   }
 
 }

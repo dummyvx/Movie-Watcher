@@ -1,4 +1,4 @@
-<div class="btn remove-btn" (click)="remove(movie.id)" *ngIf="currentUrl === 'favorites' || currentUrl === 'watchlist'">
+<div class="btn remove-btn" (click)="remove(movie)" *ngIf="currentUrl === 'favorites' || currentUrl === 'watchlist'">
   Remove <i class="fas fa-trash-alt"></i>
 </div>
 <div [routerLink]="['/movies/', movie.id]" class="movie-card fade-in">

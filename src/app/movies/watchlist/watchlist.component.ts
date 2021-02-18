@@ -4,7 +4,9 @@ import {User} from '../../auth/models/user';
 import {Subscription} from 'rxjs';
 import {AuthService} from '../../auth/services/auth.service';
 import {MovieService} from '../services/movie.service';
-import {catchError, take, tap} from 'rxjs/operators';
+import {tap} from 'rxjs/operators';
+import {NotifierService} from 'angular-notifier';
+import {ErrorMessages} from '../../shared/error-messages';
 
 @Component({
   selector: 'app-watchlist',
@@ -13,7 +15,9 @@ import {catchError, take, tap} from 'rxjs/operators';
 })
 export class WatchlistComponent implements OnInit, OnDestroy {
 
-  constructor(private authService: AuthService, private movieService: MovieService) {}
+  constructor(private authService: AuthService,
+              private movieService: MovieService,
+              private notifierService: NotifierService) {}
 
   watchlistMovies: Movie[];
   loggedUser: User;
@@ -38,10 +42,16 @@ export class WatchlistComponent implements OnInit, OnDestroy {
       });
   }
 
-  remove(movieId: number): void {
-    this.movieService.removeMovieFromWatchlist(this.loggedUser.id, movieId)
+  remove(toBeDeletedMovie: Movie): void {
+    this.movieService.removeMovieFromWatchlist(this.loggedUser.id, toBeDeletedMovie.id)
+      .pipe(
+        tap(() => this.notifierService.notify('success', `"${toBeDeletedMovie.title}" removed from watchlist`)),
+      )
       .subscribe(() =>
-        this.watchlistMovies = this.watchlistMovies.filter(movie => movie.id !== movieId)
+        this.watchlistMovies = this.watchlistMovies.filter(movie => movie.id !== toBeDeletedMovie.id),
+        () => {
+          this.notifierService.notify('error', ErrorMessages.UNKNOWN_ERROR);
+        }
       );
   }
 
