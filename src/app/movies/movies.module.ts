@@ -25,6 +25,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { SearchPageComponent } from './movie-browser/search-page/search-page.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { CustomListComponent } from './custom-list/custom-list.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     WatchlistComponent,
     FavoritesComponent,
     SearchPageComponent,
+    CustomListComponent,
 
   ],
   exports: [

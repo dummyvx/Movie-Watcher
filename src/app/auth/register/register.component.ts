@@ -26,7 +26,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css', '../login/login.component.css']
+  styleUrls: ['../login/login.component.css', './register.component.css', ]
 })
 export class RegisterComponent implements OnInit {
 

@@ -9,28 +9,32 @@
       <span class="burger"></span>
     </div>
     <nav>
-      <ul class="menu hide-mobile show-desktop" [class.open]="isOpen">
+      <ul class="menu hide-mobile" [class.show-menu]="isOpen">
         <li routerLink="/movies"
             routerLinkActive="active"
+            (click)="toggleMenuBtn()"
             [routerLinkActiveOptions]="{ exact: true }"
             class="menu-item">Movies
         </li>
         <li *ngIf="isAuthenticated"
             routerLink="/watchlist"
             routerLinkActive="active"
+            (click)="toggleMenuBtn()"
             class="menu-item">Watchlist
         </li>
         <li *ngIf="isAuthenticated"
             routerLink="/favorites"
             routerLinkActive="active"
+            (click)="toggleMenuBtn()"
             class="menu-item">Favorites
         </li>
         <li *ngIf="!isAuthenticated"
             routerLink="/auth/login"
-            class="btn btn-action"> Login
+            (click)="toggleMenuBtn()"
+            class="btn btn-action btn-login"> Login
         </li>
         <li *ngIf="isAuthenticated"
-            class="btn btn-action"
+            class="btn btn-action btn-logout"
             (click)="onLogout()"> Logout
         </li>
       </ul>
