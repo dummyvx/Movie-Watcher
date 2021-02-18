@@ -38,4 +38,10 @@ export class CustomCardComponent implements OnInit {
     this.toBeDeletedMovie.emit(toBeDeletedMovie);
   }
 
+  justify(): boolean {
+    if (this.currentUrl === 'movies/:id') {
+      return true;
+    }
+  }
+
 }

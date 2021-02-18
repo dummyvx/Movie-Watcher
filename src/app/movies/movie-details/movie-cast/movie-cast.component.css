@@ -1,6 +1,7 @@
 .cast-wrapper {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .header {
@@ -13,7 +14,6 @@
 .person {
   width: 143px;
   text-align: center;
-  margin-right: 1.2rem;
   margin-bottom: .8rem;
   color: var(--clr-white);
 }

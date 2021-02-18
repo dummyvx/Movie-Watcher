@@ -18,7 +18,6 @@ export class CustomListComponent implements OnInit {
   currentUrl: string;
   @Output()
   toBeDeletedMovie = new EventEmitter<Movie>();
-  justified: boolean;
 
   constructor(public movieService: MovieService, private route: ActivatedRoute) {}
 
@@ -37,6 +36,12 @@ export class CustomListComponent implements OnInit {
       this.movieService.searchMovies(this.movieService.searchTerm.getValue());
     } else {
       this.movieService.getMovies();
+    }
+  }
+
+  justify(): boolean {
+    if (this.currentUrl === 'movies/:id') {
+      return true;
     }
   }
 }

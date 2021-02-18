@@ -1,7 +1,7 @@
 <div class="btn remove-btn" (click)="remove(movie)" *ngIf="currentUrl === 'favorites' || currentUrl === 'watchlist'">
   Remove <i class="fas fa-trash-alt"></i>
 </div>
-<div [routerLink]="['/movies/', movie.id]" class="movie-card fade-in">
+<div [routerLink]="['/movies/', movie.id]" class="movie-card fade-in" [class.justified]="justify()">
   <div class="image-container">
     <img *ngIf="movie.poster_path; else noImage" [src]="env + movie.poster_path" [alt]="movie.title">
     <app-movie-rating [rating]="movie.vote_average"
