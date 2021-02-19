@@ -131,12 +131,8 @@ export class AuthService {
     localStorage.removeItem(this.USER_DATA);
   }
 
-  notify(message): void {
-    this.notifierService.notify('success', message);
-  }
-
-  handleError(error: string[]): void {
-    error.forEach(err => {
+  handleError(errors: string[]): void {
+    errors.forEach(err => {
       this.notifierService.notify('error', err);
     });
   }
