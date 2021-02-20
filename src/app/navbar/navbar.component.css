@@ -131,16 +131,9 @@ app-movie-search {
 }
 
 @media screen and (max-width: 800px) {
-  /*.hide-mobile {*/
-  /*  display: none;*/
-  /*}*/
-
   .show-mobile {
     display: block;
   }
-  /*.logo-wrapper {*/
-  /*  flex-grow: .3;*/
-  /*}*/
 
   .menu {
     margin: 0;
@@ -152,7 +145,7 @@ app-movie-search {
     background-color: #121012;
     display: block;
     text-align: center;
-    /*transition: var(--transition);*/
+    transition: var(--transition);
     transform: translate(-100%);
   }
 
@@ -189,7 +182,6 @@ app-movie-search {
   .logo {
     display: none;
   }
-
 
 }
 

@@ -11,7 +11,7 @@ import {ErrorMessages} from '../../shared/error-messages';
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
-  styleUrls: ['./favorites.component.css']
+  styleUrls: []
 })
 export class FavoritesComponent implements OnInit, OnDestroy {
 

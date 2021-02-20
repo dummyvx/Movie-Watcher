@@ -8,8 +8,7 @@
   color: var(--clr-white);
   display: grid;
   grid-gap: 1.5em;
-  grid-template-columns: minmax(350px, 1fr) 1fr 1fr;
-  /*grid-template-rows: 1fr;*/
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: "poster movie-info movie-info";
   margin-bottom: 1.6rem;
 }
@@ -30,14 +29,3 @@
       "poster";
   }
 }
-
-/*@media screen and (max-width: 790px) {*/
-/*  .movie-details-container {*/
-/*    grid-template-areas:*/
-/*          "movie-info"*/
-/*          "poster";*/
-/*    grid-template-columns: 1fr;*/
-/*    grid-template-rows: 450px 1fr;*/
-/*    justify-items: center;*/
-/*  }*/
-/*}*/

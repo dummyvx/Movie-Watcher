@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {MovieService} from '../services/movie.service';
 import {MovieDetails} from '../models/movie-details';
 import {Person} from '../models/person';
@@ -17,7 +17,11 @@ export class MovieDetailsComponent implements OnInit {
   similarMovies: Movie[];
   isLoading = false;
 
-  constructor(public movieService: MovieService, private route: ActivatedRoute) {}
+  constructor(public movieService: MovieService, private route: ActivatedRoute, private router: Router) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    };
+  }
 
   ngOnInit(): void {
     this.isLoading = true;

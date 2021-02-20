@@ -16,8 +16,6 @@ app-movie-list {
 }
 
 .main-section {
-    /*display: flex;*/
-    /*margin-top: 2em;*/
   display: grid;
   grid-template-columns: 300px 1fr;
   grid-gap: 1rem;

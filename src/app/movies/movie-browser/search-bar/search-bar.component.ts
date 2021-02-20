@@ -18,28 +18,16 @@ export class SearchBarComponent implements OnInit {
   value = '';
   @Input()
   searchValue;
-  // movies$: Observable<Movie[]>;
 
   constructor(private movieService: MovieService, private filtersService: FiltersService, private router: Router) {}
 
   ngOnInit(): void {
-    // this.value = this.movieService.searchTerm.getValue();
-    // if (this.movieService.searchTerm.getValue()) {
-    //   this.movieService.searchMovies(this.value);
-    // }
-    // this.movies$ = this.movieService.getMovies$();
     this.searchTerm.pipe(
       debounceTime(300),
       distinctUntilChanged(),
       switchMap(async (searchTerm) => {
         this.movieService.searchMovies(searchTerm);
       })
-        // this.searchValue.emit(this.searchTerm);
-          // this.movieService.movies$.next([]);
-
-        // this.searchValue.emit(searchTerm);
-
-
     ).subscribe();
   }
 
@@ -47,18 +35,13 @@ export class SearchBarComponent implements OnInit {
     if (term.length > 1) {
 
       this.router.navigate(['/search']);
-      // this.filtersService.allFiltersHiddenEmitter.next(true);
-      // this.movieService.searchTerm.next(term);
-      // this.movieService.urlParams.pageNumber = UrlParameters.DEFAULT_PAGE_NUMBER;
       this.searchTerm.next(term);
       this.movieService.urlParams.pageNumber = UrlParameters.DEFAULT_PAGE_NUMBER;
       this.movieService.searchTerm.next(term);
 
     } else if (term.length === 0) {
       this.movieService.movies$.next([]);
-      // this.filtersService.allFiltersHiddenEmitter.next(false);
       setTimeout(() => this.router.navigate(['/movies']), 700);
-      // setTimeout(() => this.movieService.getMovies(), 700);
     }
   }
 

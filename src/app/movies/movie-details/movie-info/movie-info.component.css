@@ -109,7 +109,6 @@ h4 {
   color: var(--clr-red);
 }
 
-
 @media screen and (max-width: 660px) {
   .tagline {
     font-size: 1.2rem;

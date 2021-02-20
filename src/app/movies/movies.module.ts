@@ -25,9 +25,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { SearchPageComponent } from './movie-browser/search-page/search-page.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { CustomListComponent } from './custom-list/custom-list.component';
 import {SimilarMoviesComponent} from './movie-details/similar-movies/similar-movies.component';
-import { CustomCardComponent } from './custom-list/custom-card/custom-card.component';
 
 @NgModule({
   declarations: [
@@ -43,11 +41,7 @@ import { CustomCardComponent } from './custom-list/custom-card/custom-card.compo
     WatchlistComponent,
     FavoritesComponent,
     SearchPageComponent,
-    CustomListComponent,
-    SimilarMoviesComponent,
-    CustomListComponent,
-    CustomCardComponent
-
+    SimilarMoviesComponent
   ],
   exports: [
     SearchBarComponent,

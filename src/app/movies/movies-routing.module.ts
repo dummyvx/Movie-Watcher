@@ -29,6 +29,9 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchPageComponent,
+  },
+  {
+    path: '**', redirectTo: '/movies'
   }
 ];
 
