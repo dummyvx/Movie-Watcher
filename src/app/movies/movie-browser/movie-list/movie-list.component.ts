@@ -18,7 +18,6 @@ export class MovieListComponent implements OnInit {
   currentUrl: string;
   @Output()
   toBeDeletedMovie = new EventEmitter<Movie>();
-  justified: boolean;
 
   constructor(public movieService: MovieService, private route: ActivatedRoute) {}
 
