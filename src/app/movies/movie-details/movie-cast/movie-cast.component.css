@@ -26,6 +26,14 @@
   font-size: .8rem;
 }
 
+::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: var(--clr-red);
+}
+
+::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: var(--clr-red);
+}
+
 @media screen and (max-width: 1260px) {
   .cast-wrapper {
     grid-template-columns: repeat(6, 1fr);
