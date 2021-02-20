@@ -11,7 +11,7 @@
   width: 100%;
   font-size: 1.2em;
   padding: .6em 1em;
-  /*margin: 1.2em auto;*/
+  margin-right: .8rem;
 }
 
 .search-bar::placeholder {

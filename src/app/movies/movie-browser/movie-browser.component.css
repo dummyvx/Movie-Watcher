@@ -47,3 +47,8 @@ app-movie-list {
   }
 }
 
+@media screen and (max-width: 530px) {
+  .btn {
+    font-size: .7em;
+  }
+}

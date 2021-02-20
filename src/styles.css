@@ -160,13 +160,6 @@ img.no-image {
   }
 }
 
-@media screen and (max-width: 530px) {
-  .btn {
-    font-size: .7em;
-  }
-}
-
-
 .mat-tooltip.tooltip {
   font-size: .8rem;
 }
