@@ -75,7 +75,6 @@ export class FilterPanelComponent implements OnInit {
 
   applyFilters(): void {
     this.movieService.movies$.next([]);
-    // this.movieService.resetUrlParams();
     this.movieService.urlParams.sortCategory = this.sortCategory;
     this.movieService.urlParams.withGenres = this.genres.join(',');
     this.movieService.urlParams.releaseDateGte = this.fromDate === '' || this.fromDate === null
@@ -84,6 +83,5 @@ export class FilterPanelComponent implements OnInit {
       ? '' : this.datePipe.transform(this.toDate, 'yyyy-MM-dd');
     this.movieService.urlParams.voteCountGte = this.voteCount;
     this.movieService.getMovies();
-    console.log(this.movieService.urlParams);
   }
 }

@@ -141,7 +141,6 @@ export class MovieService {
     // this.resetUrlParams();
     this.movies$.next([]);
     this.getMovies();
-    console.log(this.urlParams);
   }
 
   getTopRatedMovies(): void {
@@ -149,7 +148,6 @@ export class MovieService {
     this.urlParams.sortCategory = UrlParameters.VOTE_AVG_DESC;
     this.urlParams.voteCountGte = UrlParameters.MINIMUM_VOTE_COUNT;
     this.getMovies();
-    console.log(this.urlParams);
   }
 
   getNowPlayingMovies(fromDate: string, toDate: string): void  {
@@ -158,7 +156,6 @@ export class MovieService {
     this.urlParams.releaseDateLte = toDate;
     this.urlParams.withReleaseType = UrlParameters.THEATRICAL_RELEASE;
     this.getMovies();
-    console.log(this.urlParams);
   }
 
   getUpcomingMovies(fromDate: string, toDate: string): void {
@@ -167,7 +164,6 @@ export class MovieService {
     this.urlParams.releaseDateLte = toDate;
     this.urlParams.withReleaseType = UrlParameters.THEATRICAL_RELEASE;
     this.getMovies();
-    console.log(this.urlParams);
   }
 
   getGenres$(): Observable<Genre[]> {
