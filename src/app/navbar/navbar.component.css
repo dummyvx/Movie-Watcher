@@ -26,7 +26,6 @@
     font-size: 1.7em;
     outline: none;
     font-weight: bold;
-    transition: var(--transition);
     margin-right: 1rem;
 }
 
@@ -47,7 +46,8 @@
     display: flex;
     align-items: center;
     font-size: 1rem;
-    color: var(--clr-grey)
+    color: var(--clr-grey);
+    transition: var(--transition);
 }
 
 .menu-item {
@@ -145,7 +145,6 @@ app-movie-search {
     background-color: #121012;
     display: block;
     text-align: center;
-    transition: var(--transition);
     transform: translate(-100%);
   }
 
@@ -185,12 +184,6 @@ app-movie-search {
 
 }
 
-@media screen and (max-width: 400px) {
-  .logo-wrapper {
-    flex-grow: 0;
-  }
-
-}
 
 
 

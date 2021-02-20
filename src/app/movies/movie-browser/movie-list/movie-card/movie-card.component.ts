@@ -11,7 +11,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class MovieCardComponent implements OnInit {
 
-  env: string = environment.tmdb_imagesUrl_w300;
+  env: string = environment.tmdb_imagesUrl_w500;
 
   @Input()
   genres: Genre[];

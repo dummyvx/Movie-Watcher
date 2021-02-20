@@ -1,8 +1,11 @@
 .movie-list-container {
   display: grid;
   grid-gap: 1rem;
-  /*grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));*/
   grid-template-columns: repeat(4, 1fr);
+}
+
+.full-screen-layout {
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .btn {
@@ -33,8 +36,13 @@
 }
 
 @media screen and (max-width: 1260px) {
+
+
   .movie-list-container {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .full-screen-layout {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -42,14 +50,26 @@
   .movie-list-container {
     grid-template-columns: repeat(2, 1fr);
   }
+  .full-screen-layout {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media screen and (max-width: 840px) {
   .movie-list-container {
     grid-template-columns:  1fr;
   }
+
+  .full-screen-layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
+@media screen and (max-width: 660px) {
+  .full-screen-layout {
+    grid-template-columns: 1fr;
+  }
+}
 
 .pagination /deep/ .ngx-pagination .pagination-previous.disabled .ng-star-inserted,
 .pagination /deep/ .ngx-pagination .pagination-previous.disabled.ng-star-inserted::before,

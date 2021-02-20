@@ -10,7 +10,6 @@
     --ff-primary: "Roboto", sans-serif;
     --max-width: 1170px;
     --border-radius: 12px;
-    /*--transition: all 0.2s linear;*/
     --transition:  all 0.3s ease-in;
 }
 
@@ -43,7 +42,6 @@ body {
     font-size: .9rem;
     padding: .4em 1em;
     transition: var(--transition);
-
 }
 
 .btn-action {
@@ -63,8 +61,6 @@ body {
 
 .btn-action:hover {
   background-color: #991818;
-  /*font-weight: bold;*/
-  /*color: var(--clr-red);*/
 }
 
 .btn-disabled {

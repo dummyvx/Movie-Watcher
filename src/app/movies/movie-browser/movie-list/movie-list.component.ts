@@ -38,4 +38,10 @@ export class MovieListComponent implements OnInit {
       this.movieService.getMovies();
     }
   }
+
+  changeLayout(): any  {
+    if (this.currentUrl !== 'movies') {
+      return {'full-screen-layout': true};
+    }
+  }
 }
