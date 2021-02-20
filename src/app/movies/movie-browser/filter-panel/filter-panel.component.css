@@ -156,6 +156,12 @@ mat-slider {
   }
 }
 
+@media screen and (max-width: 660px) {
+  .container {
+    max-width:  600px;
+  }
+}
+
 @media screen and (max-width: 530px) {
   .btn {
     font-size: .8em;

@@ -16,8 +16,11 @@ app-movie-list {
 }
 
 .main-section {
-    display: flex;
+    /*display: flex;*/
     /*margin-top: 2em;*/
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-gap: 1rem;
 }
 
 app-filter-panel {
@@ -34,26 +37,15 @@ app-movie-list {
   display: none;
 }
 
-@media screen and (max-width: 710px) {
+@media screen and (max-width: 660px) {
   .main-section {
-    flex-direction: column;
-    align-items: center;
-
+    /*grid-template-columns: 1fr;*/
+    grid-template-columns: 300px;
+    justify-content: center;
   }
 
   app-filter-panel {
-    margin-bottom: 1rem;
+    margin: auto;
   }
-
-  .filter-buttons {
-    font-size: .9rem;
-  }
-
 }
-
-/*@media screen and (max-width: 1003px) {*/
-/*  app-movie-list {*/
-/*    margin: auto;*/
-/*  }*/
-/*}*/
 

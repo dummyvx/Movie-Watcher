@@ -10,7 +10,7 @@ import {FiltersService} from '../../services/filters.service';
   templateUrl: './filter-panel.component.html',
   styleUrls: ['./filter-panel.component.css']
 })
-export class FilterPanelComponent implements OnInit   {
+export class FilterPanelComponent implements OnInit {
 
   MINIMUM_VOTES = 0;
   MAXIMUM_VOTES = 10000;
@@ -34,7 +34,8 @@ export class FilterPanelComponent implements OnInit   {
 
   constructor(private movieService: MovieService,
               private datePipe: DatePipe,
-              public filterService: FiltersService) { }
+              public filterService: FiltersService) {
+  }
 
   ngOnInit(): void {
     this.genres$ = this.movieService.getGenres$();
@@ -74,7 +75,7 @@ export class FilterPanelComponent implements OnInit   {
 
   applyFilters(): void {
     this.movieService.movies$.next([]);
-    this.movieService.resetUrlParams();
+    // this.movieService.resetUrlParams();
     this.movieService.urlParams.sortCategory = this.sortCategory;
     this.movieService.urlParams.withGenres = this.genres.join(',');
     this.movieService.urlParams.releaseDateGte = this.fromDate === '' || this.fromDate === null
@@ -83,6 +84,6 @@ export class FilterPanelComponent implements OnInit   {
       ? '' : this.datePipe.transform(this.toDate, 'yyyy-MM-dd');
     this.movieService.urlParams.voteCountGte = this.voteCount;
     this.movieService.getMovies();
+    console.log(this.movieService.urlParams);
   }
-
 }

@@ -16,12 +16,7 @@
   justify-content: space-between;
 }
 
-.basic-details span {
-  font-size: .9rem;
-}
-
 .basic-details .release-date {
-  font-size: .8em;
   font-weight: normal;
 }
 
@@ -114,23 +109,20 @@ h4 {
   color: var(--clr-red);
 }
 
-@media screen and (max-width: 790px) {
-  .movie-details-container {
-    grid-template-areas:
-          "movie-info"
-          "poster";
-    grid-template-columns: 1fr;
-    grid-template-rows: 450px 1fr;
-    justify-items: center;
+
+@media screen and (max-width: 660px) {
+  .title .release-date {
+    font-size: 1rem;
   }
 
-  .poster {
-    width: 450px !important;
-    text-align: center;
+  .tagline {
+    font-size: 1.2rem;
   }
 
-  h4 {
-    font-size: 1em;
+  .stats {
+    font-size: .8rem;
+  }
+  .overview p {
+    font-size: .9rem;
   }
 }
-

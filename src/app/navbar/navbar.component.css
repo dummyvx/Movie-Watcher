@@ -130,16 +130,17 @@ app-movie-search {
   display: none;
 }
 
-@media screen and (max-width: 940px) {
-  .hide-mobile {
-    display: none;
-  }
+@media screen and (max-width: 800px) {
+  /*.hide-mobile {*/
+  /*  display: none;*/
+  /*}*/
+
   .show-mobile {
     display: block;
   }
-  .logo-wrapper {
-    flex-grow: .3;
-  }
+  /*.logo-wrapper {*/
+  /*  flex-grow: .3;*/
+  /*}*/
 
   .menu {
     margin: 0;
@@ -151,7 +152,7 @@ app-movie-search {
     background-color: #121012;
     display: block;
     text-align: center;
-    transition: var(--transition);
+    /*transition: var(--transition);*/
     transform: translate(-100%);
   }
 
@@ -184,17 +185,20 @@ app-movie-search {
 
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 1000px) {
   .logo {
     display: none;
   }
 
-  .logo-wrapper {
-    flex: .8;
-  }
 
 }
 
+@media screen and (max-width: 400px) {
+  .logo-wrapper {
+    flex-grow: 0;
+  }
+
+}
 
 
 

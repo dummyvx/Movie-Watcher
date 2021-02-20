@@ -8,8 +8,9 @@
   color: var(--clr-white);
   display: grid;
   grid-gap: 1.5em;
-  grid-template-columns: 350px 1fr;
-  grid-template-areas: "poster movie-info";
+  grid-template-columns: minmax(350px, 1fr) 1fr 1fr;
+  /*grid-template-rows: 1fr;*/
+  grid-template-areas: "poster movie-info movie-info";
   margin-bottom: 1.6rem;
 }
 
@@ -21,13 +22,22 @@
   text-align: center;
 }
 
-@media screen and (max-width: 790px) {
-  .movie-details-container {
-    grid-template-areas:
-          "movie-info"
-          "poster";
+@media screen and (max-width: 1000px) {
+  .movie-info-container {
     grid-template-columns: 1fr;
-    grid-template-rows: 450px 1fr;
-    justify-items: center;
+    grid-template-areas:
+      "movie-info"
+      "poster";
   }
 }
+
+/*@media screen and (max-width: 790px) {*/
+/*  .movie-details-container {*/
+/*    grid-template-areas:*/
+/*          "movie-info"*/
+/*          "poster";*/
+/*    grid-template-columns: 1fr;*/
+/*    grid-template-rows: 450px 1fr;*/
+/*    justify-items: center;*/
+/*  }*/
+/*}*/

@@ -21,3 +21,9 @@
 .grey {
   border: 3px solid var(--clr-grey);
 }
+
+@media screen and (max-width: 660px) {
+  .rating {
+    font-size: 1.2rem !important;
+  }
+}
