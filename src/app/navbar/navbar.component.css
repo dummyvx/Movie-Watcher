@@ -70,7 +70,7 @@
 .active {
   color: var(--clr-white);
   border-bottom: 1px solid #fff;
-  padding-bottom: .2rem;
+  padding-bottom: .1rem;
 }
 
 app-movie-search {
