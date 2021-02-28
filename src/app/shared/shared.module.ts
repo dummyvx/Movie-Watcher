@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RoundPipe} from './round.pipe';
 import {NotifierModule, NotifierOptions} from 'angular-notifier';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 const notifierDefaultOptions: NotifierOptions = {
   position: {
@@ -52,11 +53,13 @@ const notifierDefaultOptions: NotifierOptions = {
     LoadingSpinnerComponent,
     CommonModule,
     RoundPipe,
-    NotifierModule
+    NotifierModule,
+    IvyCarouselModule
   ],
   imports: [
     CommonModule,
-    NotifierModule.withConfig(notifierDefaultOptions)
+    NotifierModule.withConfig(notifierDefaultOptions),
+    IvyCarouselModule
   ]
 })
 export class SharedModule { }

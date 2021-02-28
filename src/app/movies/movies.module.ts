@@ -26,6 +26,7 @@ import { SearchPageComponent } from './movie-browser/search-page/search-page.com
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {SimilarMoviesComponent} from './movie-details/similar-movies/similar-movies.component';
+import {GalleryComponent} from './movie-details/gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {SimilarMoviesComponent} from './movie-details/similar-movies/similar-mov
     WatchlistComponent,
     FavoritesComponent,
     SearchPageComponent,
-    SimilarMoviesComponent
+    SimilarMoviesComponent,
+    GalleryComponent
   ],
   exports: [
     SearchBarComponent,

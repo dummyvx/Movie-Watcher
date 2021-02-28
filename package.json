@@ -23,6 +23,7 @@
     "@angular/router": "~10.1.6",
     "@fortawesome/fontawesome-free": "^5.15.1",
     "angular-notifier": "^6.0.1",
+    "angular-responsive-carousel": "^2.0.2",
     "ngx-pagination": "^5.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

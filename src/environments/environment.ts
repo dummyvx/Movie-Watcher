@@ -8,6 +8,7 @@ export const environment = {
   tmdb_base_url: 'https://api.themoviedb.org/3',
   tmdb_imagesUrl_w300: 'https://image.tmdb.org/t/p/w300',
   tmdb_imagesUrl_w500: 'https://image.tmdb.org/t/p/w500',
+  tmdb_imagesUrl_original: 'https://image.tmdb.org/t/p/original',
   backend_base_url: 'http://localhost:8080/api/v1'
 };
 

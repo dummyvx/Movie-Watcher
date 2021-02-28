@@ -178,7 +178,7 @@ export class MovieService {
   }
 
   getMovieDetails$(id: number): Observable<MovieDetails> {
-    return this.http.get<MovieDetails>(`${this.movieDetailsUrl}/${id}?api_key=${environment.api_key}&append_to_response=credits,similar`);
+    return this.http.get<MovieDetails>(`${this.movieDetailsUrl}/${id}?api_key=${environment.api_key}&append_to_response=credits,similar,images`);
   }
 
   getFavoriteMovies(userId: number): Observable<Movie[]> {

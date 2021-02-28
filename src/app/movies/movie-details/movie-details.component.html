@@ -4,6 +4,7 @@
 <div class="movie-details-container">
   <app-movie-info *ngIf="!isLoading" class="movie-info-container" [movieDetails]="movieDetails"></app-movie-info>
   <app-movie-cast *ngIf="!isLoading" [cast]="cast"></app-movie-cast>
+  <app-gallery *ngIf="!isLoading" [images]="images"></app-gallery>
   <app-similar-movies *ngIf="!isLoading && similarMovies.length" [similarMovies]="similarMovies"></app-similar-movies>
 </div>
 

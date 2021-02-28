@@ -4,6 +4,7 @@ import {MovieService} from '../services/movie.service';
 import {MovieDetails} from '../models/movie-details';
 import {Person} from '../models/person';
 import {Movie} from '../models/movie';
+import {Backdrops} from '../models/backdrops';
 
 @Component({
   selector: 'app-movie-details',
@@ -16,6 +17,8 @@ export class MovieDetailsComponent implements OnInit {
   cast: Person[];
   similarMovies: Movie[];
   isLoading = false;
+  images: any[];
+  imageUrls: any[];
 
   constructor(public movieService: MovieService, private route: ActivatedRoute, private router: Router) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
@@ -31,6 +34,7 @@ export class MovieDetailsComponent implements OnInit {
         this.movieDetails = data;
         this.cast = data.credits.cast;
         this.similarMovies = data.similar.results;
+        this.images = data.images.backdrops;
         this.isLoading = false;
       }, error =>  {
         this.isLoading = false;
