@@ -174,12 +174,17 @@ app-movie-search {
     width: 8rem;
     margin: 1.3rem auto;
   }
-
 }
 
 @media screen and (max-width: 1000px) {
   .logo {
     display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  app-movie-search {
+    flex-grow: initial;
   }
 
 }
