@@ -1,18 +1,14 @@
 .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
   position: fixed;
   background-color: var(--clr-bg-primary);
   top: 0;
   left: 0;
   right: 0;
   z-index: 10001;
-}
-
-.navbar .container  {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    position: relative;
 }
 
 .logo-wrapper {
