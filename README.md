@@ -1,15 +1,15 @@
 ![obraz](https://user-images.githubusercontent.com/36601103/109544235-9ada2400-7ac7-11eb-9c34-d19bd1bac74b.png)
 
-## Movie Watcher
+# Movie Watcher
 https://movie-watcher.vercel.app  
 (since backend is deployed on heroku, some functionalities may work with 30 seconds delay)
 
-# Backend
+## Backend
 
 https://github.com/mbart13/Movie-Watcher-Backend
 
 
-It's an app for browsing movies. Some additional features are available after registering and logging into account 
+Movie Watcher is an app for browsing movies. Some additional features are available after registering and logging into account.
 
 Tools: 
 * Angular;
