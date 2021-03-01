@@ -4,7 +4,8 @@ import {MovieService} from '../services/movie.service';
 import {MovieDetails} from '../models/movie-details';
 import {Person} from '../models/person';
 import {Movie} from '../models/movie';
-import {Backdrops} from '../models/backdrops';
+import {NotifierService} from 'angular-notifier';
+import {ErrorMessages} from '../../shared/error-messages';
 
 @Component({
   selector: 'app-movie-details',
@@ -19,7 +20,10 @@ export class MovieDetailsComponent implements OnInit {
   isLoading = false;
   images: any[];
 
-  constructor(public movieService: MovieService, private route: ActivatedRoute, private router: Router) {
+  constructor(public movieService: MovieService,
+              private route: ActivatedRoute,
+              private router: Router,
+              private notifierService: NotifierService) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
       return false;
     };
@@ -35,9 +39,9 @@ export class MovieDetailsComponent implements OnInit {
         this.similarMovies = data.recommendations.results;
         this.images = data.images.backdrops;
         this.isLoading = false;
-      }, error =>  {
+      }, () =>  {
         this.isLoading = false;
-        console.log('something went wrong', error);
+        this.notifierService.notify('error', ErrorMessages.UNKNOWN_ERROR);
       });
   }
 
