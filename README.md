@@ -2,7 +2,7 @@
 
 ## Movie Watcher
 https://movie-watcher.vercel.app  
-(since backend is deployed on heroku, some functionalities will work with delay)
+(since backend is deployed on heroku, some functionalities may work with 30 seconds delay)
 
 # Backend
 
