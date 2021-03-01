@@ -63,12 +63,24 @@
   .full-screen-layout {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .pagination /deep/ .ngx-pagination .ng-star-inserted {
+    font-size: 12px;
+  }
+
+  /*.pagination /deep/ .ngx-pagination .pagination-previous.disable,*/
+  /*.pagination /deep/ .ngx-pagination .pagination-next.disable,*/
+  /*.pagination /deep/ .ngx-pagination .pagination-previous,*/
+  /*.pagination /deep/ .ngx-pagination .pagination-next {*/
+  /*  display: none;*/
+  /*}*/
 }
 
 @media screen and (max-width: 660px) {
   .full-screen-layout {
     grid-template-columns: 1fr;
   }
+
 }
 
 .pagination /deep/ .ngx-pagination .pagination-previous.disabled .ng-star-inserted,

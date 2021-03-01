@@ -18,7 +18,7 @@
 <ng-container *ngIf="!movieService.isLoading">
   <ng-container *ngIf="movies.length; else noMovies">
     <pagination-controls *ngIf="movieService.totalResults > 20 && (currentUrl === 'movies' || currentUrl === 'search')"
-    (pageChange)="getPage($event)" class="pagination fade-in"></pagination-controls>
+    (pageChange)="getPage($event)" class="pagination fade-in" (window:resize)="onResize()" maxSize="{{paginationMaxSize}}"></pagination-controls>
   </ng-container>
 </ng-container>
 

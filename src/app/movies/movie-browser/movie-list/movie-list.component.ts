@@ -18,8 +18,12 @@ export class MovieListComponent implements OnInit {
   currentUrl: string;
   @Output()
   toBeDeletedMovie = new EventEmitter<Movie>();
+  defaultPaginationMaxSize = '7';
+  paginationMaxSize;
 
-  constructor(public movieService: MovieService, private route: ActivatedRoute) {}
+  constructor(public movieService: MovieService, private route: ActivatedRoute) {
+    this.getPaginationMaxSize();
+  }
 
   ngOnInit(): void {
     this.genres$ = this.movieService.getGenres$();
@@ -43,5 +47,17 @@ export class MovieListComponent implements OnInit {
     if (this.currentUrl !== 'movies') {
       return {'full-screen-layout': true};
     }
+  }
+
+  getPaginationMaxSize(): void {
+    if (window.innerWidth < 840) {
+      this.paginationMaxSize =  '4';
+    } else {
+      this.paginationMaxSize = this.defaultPaginationMaxSize;
+    }
+  }
+
+  onResize(): void {
+    this.getPaginationMaxSize();
   }
 }

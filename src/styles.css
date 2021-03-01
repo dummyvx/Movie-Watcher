@@ -181,3 +181,7 @@ img.no-image {
     opacity: 1;
   }
 }
+
+.hide-overflow {
+  overflow: hidden;
+}
