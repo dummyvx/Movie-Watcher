@@ -35,6 +35,26 @@
   border: none;
 }
 
+.pagination /deep/ .ngx-pagination .pagination-previous.disabled .ng-star-inserted,
+.pagination /deep/ .ngx-pagination .pagination-previous.disabled.ng-star-inserted::before,
+.pagination /deep/ .ngx-pagination .pagination-next.disabled .ng-star-inserted,
+.pagination /deep/ .ngx-pagination .pagination-next.disabled.ng-star-inserted::after {
+  color: #616060;
+
+}
+
+.pagination /deep/ .ngx-pagination :not(.disabled) .ng-star-inserted:hover,
+.pagination /deep/ .ngx-pagination .pagination-previous:not(.disabled) .ng-star-inserted:hover{
+  color: black;
+  background-color: #fff;
+}
+
+.pagination /deep/ .ngx-pagination .pagination-next,
+.pagination /deep/ .ngx-pagination .pagination-previous,
+.pagination /deep/ .ngx-pagination .ng-star-inserted {
+  color: var(--clr-grey);
+}
+
 @media screen and (max-width: 1260px) {
 
 
@@ -67,13 +87,6 @@
   .pagination /deep/ .ngx-pagination .ng-star-inserted {
     font-size: 12px;
   }
-
-  /*.pagination /deep/ .ngx-pagination .pagination-previous.disable,*/
-  /*.pagination /deep/ .ngx-pagination .pagination-next.disable,*/
-  /*.pagination /deep/ .ngx-pagination .pagination-previous,*/
-  /*.pagination /deep/ .ngx-pagination .pagination-next {*/
-  /*  display: none;*/
-  /*}*/
 }
 
 @media screen and (max-width: 660px) {
@@ -82,24 +95,3 @@
   }
 
 }
-
-.pagination /deep/ .ngx-pagination .pagination-previous.disabled .ng-star-inserted,
-.pagination /deep/ .ngx-pagination .pagination-previous.disabled.ng-star-inserted::before,
-.pagination /deep/ .ngx-pagination .pagination-next.disabled .ng-star-inserted,
-.pagination /deep/ .ngx-pagination .pagination-next.disabled.ng-star-inserted::after {
-  color: #616060;
-
-}
-
-.pagination /deep/ .ngx-pagination :not(.disabled) .ng-star-inserted:hover,
-.pagination /deep/ .ngx-pagination .pagination-previous:not(.disabled) .ng-star-inserted:hover{
-  color: black;
-  background-color: #fff;
-}
-
-.pagination /deep/ .ngx-pagination .pagination-next,
-.pagination /deep/ .ngx-pagination .pagination-previous,
-.pagination /deep/ .ngx-pagination .ng-star-inserted {
-  color: var(--clr-grey);
-}
-

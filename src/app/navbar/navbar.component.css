@@ -178,12 +178,6 @@ app-movie-search {
   }
 }
 
-@media screen and (max-width: 600px) {
-  app-movie-search {
-    flex-grow: initial;
-  }
-
-}
 
 
 

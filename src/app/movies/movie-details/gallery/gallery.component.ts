@@ -11,6 +11,7 @@ export class GalleryComponent implements OnInit {
   @Input()
   images;
   env: string = environment.tmdb_imagesUrl_original;
+  autoplay = false;
 
   constructor() {}
 
@@ -18,6 +19,10 @@ export class GalleryComponent implements OnInit {
     this.images = this.images.map(image => {
       return {path: this.env + image.file_path};
     });
+  }
+
+  toggleSlider(): void {
+    this.autoplay = !this.autoplay;
   }
 
 }

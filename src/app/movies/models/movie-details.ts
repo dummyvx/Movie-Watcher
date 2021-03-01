@@ -17,6 +17,7 @@ export interface MovieDetails {
     title: string;
     vote_average: number;
     credits: MovieCredits;
-    similar: Results;
+    similar?: Results;
+    recommendations?: Results;
     images: Backdrops;
 }

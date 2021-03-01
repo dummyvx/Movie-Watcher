@@ -18,7 +18,6 @@ export class MovieDetailsComponent implements OnInit {
   similarMovies: Movie[];
   isLoading = false;
   images: any[];
-  imageUrls: any[];
 
   constructor(public movieService: MovieService, private route: ActivatedRoute, private router: Router) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
@@ -33,7 +32,7 @@ export class MovieDetailsComponent implements OnInit {
       .subscribe(data => {
         this.movieDetails = data;
         this.cast = data.credits.cast;
-        this.similarMovies = data.similar.results;
+        this.similarMovies = data.recommendations.results;
         this.images = data.images.backdrops;
         this.isLoading = false;
       }, error =>  {

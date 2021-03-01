@@ -39,11 +39,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   toggleMenuBtn(): void {
     this.isOpen = !this.isOpen;
-    if (document.querySelector('body').classList.contains('hide-overflow')) {
-      document.querySelector('body').classList.remove('hide-overflow');
-    } else {
-      document.querySelector('body').classList.add('hide-overflow');
-    }
+    document.querySelector('body').classList.toggle('hide-overflow');
   }
 
   closeMenu(): void {

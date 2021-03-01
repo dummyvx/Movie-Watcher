@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Observable, BehaviorSubject, pipe, Subject, of} from 'rxjs';
+import {Observable, BehaviorSubject, of} from 'rxjs';
 import {catchError, map, shareReplay, tap} from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Genre } from '../models/genre';
@@ -178,7 +178,7 @@ export class MovieService {
   }
 
   getMovieDetails$(id: number): Observable<MovieDetails> {
-    return this.http.get<MovieDetails>(`${this.movieDetailsUrl}/${id}?api_key=${environment.api_key}&append_to_response=credits,similar,images`);
+    return this.http.get<MovieDetails>(`${this.movieDetailsUrl}/${id}?api_key=${environment.api_key}&append_to_response=credits,recommendations,images`);
   }
 
   getFavoriteMovies(userId: number): Observable<Movie[]> {

@@ -29,7 +29,7 @@ body {
 .container {
     max-width: var(--max-width);
     margin: auto;
-    padding: 1.4rem 1rem;
+    padding: 1.4rem;
 }
 
 .btn {
@@ -61,16 +61,6 @@ body {
 
 .btn-action:hover {
   background-color: #991818;
-}
-
-.btn-disabled {
-  background: #888383;
-}
-
-.btn-disabled:hover {
-  cursor: default;
-  background: #888383;
-  color: var(--clr-white);
 }
 
 h1 {

@@ -2,12 +2,11 @@
   <div class="header">
     <h4>Gallery</h4>
   </div>
+<!--  <i class="fas fa-play" aria-label="Play or Pause Slideshow" (click)="toggleSlider()"></i>-->
   <carousel
     [images]="images"
     [objectFit]="'cover'"
     [cellWidth]="'100%'"
-    [autoplay]="true"
-    [autoplayInterval]="3000"
     [loop]="true"
     [counter]="true">
   </carousel>
