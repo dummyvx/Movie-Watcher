@@ -23,7 +23,7 @@ Tools:
 Some interesting technical aspects:
 * lazy loading;
 * asynchronous and synchronous form validation;
-* autologin and autologout depending if token is not expired;
+* autologin and autologout depending if token is expired;
 * authorization with JWT;
 * REST API;
 
