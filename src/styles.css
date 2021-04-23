@@ -10,7 +10,7 @@
     --ff-primary: "Roboto", sans-serif;
     --max-width: 1170px;
     --border-radius: 12px;
-    --transition:  all 0.3s ease-in;
+    --transition:  all 0.2s ease-in;
 }
 
 *, ::after, ::before {
@@ -55,12 +55,13 @@ body {
 
 .btn:hover, .btn:focus {
   color: var(--clr-white);
-  background: var(--clr-red) ;
+  box-shadow: 0 0 0 2px var(--clr-red), 0 0 0 2px var(--clr-red);
   cursor: pointer;
 }
 
 .btn-action:hover, .btn-action:focus {
   background-color: #991818;
+  box-shadow: unset;
 }
 
 h1 {
