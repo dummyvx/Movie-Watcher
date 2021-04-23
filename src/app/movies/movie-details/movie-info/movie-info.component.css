@@ -123,5 +123,5 @@ h4 {
 }
 
 .btn:hover {
-  pointer-events: none;
+  cursor: auto;
  }
