@@ -46,17 +46,13 @@
     transition: var(--transition);
 }
 
-.menu a {
+.menu-item {
   margin-right: 1rem;
   position: relative;
-
-}
-
-.menu-item {
   animation: nothing 0s;
 }
 
-.menu a::before {
+.menu-item::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -68,10 +64,9 @@
   transition: transform 0.3s ease;
 }
 
-.menu a:hover::before {
+.menu-item:hover::before {
   transform: scale(1);
 }
-
 
 .menu-item:focus, .logo:focus {
   animation: outline 1s;
@@ -81,7 +76,9 @@
   color: var(--clr-white);
   cursor: pointer;
 }
+
 @keyframes nothing {}
+
 @keyframes outline {
   from {
     outline: 2px dashed var(--clr-white);
@@ -92,6 +89,16 @@
     outline-offset: 2px;
   }
 }
+
+@keyframes appear {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 
 
 .btn-action {
@@ -175,20 +182,23 @@ app-movie-search {
     background-color: #121012;
     display: block;
     text-align: center;
-    transform: translate(-100%);
+    padding-top: 1rem;
+    display: none;
+    animation: appear .3s linear;
+  }
+
+  .menu li {
+    margin-bottom: 1rem;
   }
 
   .menu-item {
     font-size: 1.5rem;
-    padding: 1rem 2rem;
-  }
-
-  .menu-item:first-child {
-    padding-top: 2rem;
+    margin-right: 0;
+    margin-bottom: 1rem;
   }
 
   .show-menu {
-    transform: translate(0);
+    display: block;
   }
 
   .active {
