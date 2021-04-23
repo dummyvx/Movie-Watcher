@@ -49,7 +49,7 @@
 .menu-item {
   margin-right: 1rem;
   position: relative;
-  animation: nothing 0s;
+  /* animation: nothing 0s; */
 }
 
 .menu-item::before {
@@ -69,7 +69,8 @@
 }
 
 .menu-item:focus, .logo:focus {
-  animation: outline 1s;
+  outline: 2px dashed var(--clr-red);
+  outline-offset: 2px;
 }
 
 .menu-item:hover {
@@ -81,11 +82,11 @@
 
 @keyframes outline {
   from {
-    outline: 2px dashed var(--clr-white);
+    outline: 2px dotted var(--clr-white);
     outline-offset: 2px;
   }
   to {
-    outline: 2px dashed var(--clr-white);
+    outline: 2px dotted var(--clr-white);
     outline-offset: 2px;
   }
 }
@@ -99,16 +100,14 @@
   }
 }
 
-
-
 .btn-action {
   padding: .3em 1.2em;
 }
 
-.menu .active::before {
+/* .menu .active::before {
   color: var(--clr-white);
   transform: scale(1);
-}
+} */
 
 app-movie-search {
   flex-grow: 1;

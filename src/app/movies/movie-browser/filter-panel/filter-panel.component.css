@@ -3,6 +3,17 @@
     border-radius: 12px;
     padding: .8em .8em 0 .8em;
     margin-bottom: .8em;
+    background: none;
+    color: var(--clr-grey);;
+    width: 100%;
+    border: none;
+    font-family: inherit;
+}
+
+.panel:focus {
+  box-shadow: 0 0 0 1px var(--clr-white), 0 0 0 1px var(--clr-white);
+  color: var(--clr-white);
+  outline: none;
 }
 
 .panel-header {

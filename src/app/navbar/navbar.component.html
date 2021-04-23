@@ -36,6 +36,7 @@
             class="btn btn-action btn-login"> Login
         </li>
         <li *ngIf="isAuthenticated"
+            tabindex="0"
             class="btn btn-action btn-logout"
             (click)="onLogout()"> Logout
         </li>

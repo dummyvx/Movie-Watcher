@@ -1,4 +1,4 @@
-<div class="panel sort-panel"
+<button class="panel sort-panel"
      [class.expand]="sortExpanded" (click)="toggleSort()">
     <div class="panel-header">
         <h4>Sort</h4>
@@ -22,8 +22,8 @@
             <i class="fas fa-sort-down"></i>
         </div>
     </div>
-</div>
-<div class="panel filter-panel" [class.expand]="filterExpanded" (click)="toggleFilters()">
+</button>
+<button class="panel filter-panel" [class.expand]="filterExpanded" (click)="toggleFilters()">
     <div class="panel-header">
         <h4>Filters</h4>
         <i class="fas fa-chevron-down"></i>
@@ -67,7 +67,7 @@
             <mat-slider [min]="MINIMUM_VOTES" [max]="MAXIMUM_VOTES" [step]="STEP" [(ngModel)]="voteCount"></mat-slider>
         </div>
     </div>
-</div>
+</button>
 <button class="btn btn-action btn-apply" (click)="applyFilters()">Apply</button>
 
 

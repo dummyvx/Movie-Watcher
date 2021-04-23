@@ -53,13 +53,13 @@ body {
     background: var(--clr-red);
 }
 
-.btn:hover {
+.btn:hover, .btn:focus {
   color: var(--clr-white);
   background: var(--clr-red) ;
   cursor: pointer;
 }
 
-.btn-action:hover {
+.btn-action:hover, .btn-action:focus {
   background-color: #991818;
 }
 
