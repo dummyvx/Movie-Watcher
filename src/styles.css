@@ -175,3 +175,11 @@ img.no-image {
 .hide-overflow {
   overflow: hidden;
 }
+
+::-moz-focus-inner {
+  border: none;
+}
+
+a:focus-visible {
+  outline: none;
+}

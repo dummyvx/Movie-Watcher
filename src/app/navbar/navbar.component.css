@@ -18,11 +18,11 @@
 }
 
 .logo {
-    letter-spacing: .3rem;
-    font-size: 1.7em;
-    outline: none;
-    font-weight: bold;
-    margin-right: 1rem;
+  letter-spacing: .3rem;
+  font-size: 1.7em;
+  outline: none;
+  font-weight: bold;
+  margin-right: 1rem;
 }
 
 .logo:hover {
@@ -64,11 +64,12 @@
   transition: transform 0.3s ease;
 }
 
-.menu-item:hover::before {
+.menu-item:hover::before, .menu-item:focus::before {
+  outline: none;
   transform: scale(1);
 }
 
-.menu-item:focus, .logo:focus {
+.logo:focus {
   outline: 2px dashed var(--clr-red);
   outline-offset: 2px;
 }
@@ -76,19 +77,6 @@
 .menu-item:hover {
   color: var(--clr-white);
   cursor: pointer;
-}
-
-@keyframes nothing {}
-
-@keyframes outline {
-  from {
-    outline: 2px dotted var(--clr-white);
-    outline-offset: 2px;
-  }
-  to {
-    outline: 2px dotted var(--clr-white);
-    outline-offset: 2px;
-  }
 }
 
 @keyframes appear {
@@ -103,11 +91,9 @@
 .btn-action {
   padding: .3em 1.2em;
 }
-
-/* .menu .active::before {
-  color: var(--clr-white);
+.menu .active::before {
   transform: scale(1);
-} */
+}
 
 app-movie-search {
   flex-grow: 1;
@@ -198,10 +184,6 @@ app-movie-search {
 
   .show-menu {
     display: block;
-  }
-
-  .active {
-    border-bottom: none;
   }
 
   .menu-item:not(:last-child) {
