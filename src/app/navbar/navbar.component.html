@@ -9,24 +9,27 @@
       <span class="burger"></span>
     </div>
     <nav>
-      <ul class="menu " [class.show-menu]="isOpen">
-        <li routerLink="/movies"
-            routerLinkActive="active"
-            (click)="closeMenu()"
-            [routerLinkActiveOptions]="{ exact: true }"
-            class="menu-item">Movies
+      <ul class="menu" [class.show-menu]="isOpen">
+        <li>
+          <a routerLink="/movies"
+          routerLinkActive="active"
+          (click)="closeMenu()"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="menu-item">Movies</a>
         </li>
-        <li *ngIf="isAuthenticated"
-            routerLink="/watchlist"
-            routerLinkActive="active"
-            (click)="closeMenu()"
-            class="menu-item">Watchlist
+        <li>
+          <a *ngIf="isAuthenticated"
+          routerLink="/watchlist"
+          routerLinkActive="active"
+          (click)="closeMenu()"
+          class="menu-item">Watchlist</a>
         </li>
-        <li *ngIf="isAuthenticated"
-            routerLink="/favorites"
-            routerLinkActive="active"
-            (click)="closeMenu()"
-            class="menu-item">Favorites
+        <li>
+          <a *ngIf="isAuthenticated"
+          routerLink="/favorites"
+          routerLinkActive="active"
+          (click)="closeMenu()"
+          class="menu-item">Favorites</a>
         </li>
         <li *ngIf="!isAuthenticated"
             routerLink="/auth/login"
