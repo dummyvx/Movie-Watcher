@@ -1,13 +1,15 @@
-<div class="gallery">
+<div *ngIf="images.length > 1" class="gallery">
   <div class="header">
     <h4>Gallery</h4>
   </div>
-<!--  <i class="fas fa-play" aria-label="Play or Pause Slideshow" (click)="toggleSlider()"></i>-->
   <carousel
     [images]="images"
+    [autoplay]="true"
+    [autoplayInterval]="3000"
     [objectFit]="'cover'"
     [cellWidth]="'100%'"
     [loop]="true"
+    [overflowCellsLimit]="1"
     [counter]="true">
   </carousel>
 </div>
