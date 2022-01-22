@@ -1,68 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,500&display=swap");
 
 :root {
-    --clr-bg-primary: #121012;
-    --clr-bg-secondary: #1b1b1f;
-    --clr-red: #e21f3f;
-    --clr-blue: #216ea5;
-    --clr-grey: #adacbb;
-    --clr-white: #fff;
-    --ff-primary: "Roboto", sans-serif;
-    --max-width: 1170px;
-    --border-radius: 12px;
-    --transition:  all 0.2s ease-in;
+  --clr-bg-primary: #121012;
+  --clr-bg-secondary: #1b1b1f;
+  --clr-red: #e21f3f;
+  --clr-blue: #216ea5;
+  --clr-grey: #adacbb;
+  --clr-white: #fff;
+  --ff-primary: "Roboto", sans-serif;
+  --max-width: 1170px;
+  --border-radius: 12px;
+  --transition: all 0.2s ease-in;
 }
 
-*, ::after, ::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    color: var(--clr-grey);
-    font-family: var(--ff-primary);
-    font-size: 1rem;
-    background: var(--clr-bg-primary);
+  color: var(--clr-grey);
+  font-family: var(--ff-primary);
+  font-size: 1rem;
+  background: var(--clr-bg-primary);
 }
 
 .container {
-    max-width: var(--max-width);
-    margin: auto;
-    padding: 1.4rem;
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 1.4rem;
 }
 
 .btn {
-    border: none;
-    outline: none;
-    border-radius: 20px;
-    color: var(--clr-grey);
-    background: var(--clr-bg-secondary);
-    font-family: inherit;
-    font-size: .9rem;
-    padding: .4em 1em;
-    transition: var(--transition);
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  color: var(--clr-grey);
+  background: var(--clr-bg-secondary);
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 0.4em 1em;
+  /* transition: color 0.2s ease-in, background-color 0.2s ease-in; */
 }
 
 .btn-action {
   font-size: 1rem;
 }
 
-.btn-selected, .btn-action {
-    color: var(--clr-white);
-    background: var(--clr-red);
+.btn-selected,
+.btn-action {
+  color: var(--clr-white);
+  background: var(--clr-red);
 }
 
-.btn:hover, .btn:focus {
+.btn:hover {
   color: var(--clr-white);
   box-shadow: 0 0 0 2px var(--clr-red), 0 0 0 2px var(--clr-red);
   cursor: pointer;
 }
 
-.btn-action:hover, .btn-action:focus {
+a:focus,
+button:focus {
+  outline: 2px dashed var(--clr-red);
+  outline-offset: 4px;
+}
+
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* .btn-action:hover, .btn-action:focus {
   background-color: #991818;
   box-shadow: unset;
-}
+} */
 
 h1 {
   font-size: 4rem;
@@ -80,42 +94,47 @@ h4 {
   font-size: 1.5rem;
 }
 
-
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   line-height: 1;
 }
 
 a {
-    text-decoration: none;
-    color: var(--clr-white);
+  text-decoration: none;
+  color: var(--clr-white);
 }
 
 ul li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
-select, input {
-    border: none;
-    outline: none;
+select,
+input {
+  border: none;
+  outline: none;
 }
 
 input {
   background: var(--clr-bg-primary);
-  color: var(--clr-grey)
+  color: var(--clr-grey);
 }
 
 select {
-    -moz-appearance: none;
-    -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
-a:hover, select:hover, button:hover {
-    cursor: pointer;
+a:hover,
+select:hover,
+button:hover {
+  cursor: pointer;
 }
 
 img {
-    width: 100%;
-    border-radius: var(--border-radius);
+  width: 100%;
+  border-radius: var(--border-radius);
 }
 
 img.no-image {
@@ -123,36 +142,35 @@ img.no-image {
 }
 
 .hidden {
-  display: none
+  display: none;
 }
 
 @media screen and (max-width: 1260px) {
   .container {
-    max-width:  960px;
+    max-width: 960px;
   }
 }
 
-
 @media screen and (max-width: 1000px) {
   .container {
-    max-width:  800px;
+    max-width: 800px;
   }
 }
 
 @media screen and (max-width: 840px) {
   .container {
-    max-width:  640px;
+    max-width: 640px;
   }
 }
 
 @media screen and (max-width: 660px) {
   .container {
-    max-width:  500px;
+    max-width: 500px;
   }
 }
 
 .mat-tooltip.tooltip {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .fade-in {
@@ -164,7 +182,7 @@ img.no-image {
   animation-fill-mode: both;
 }
 
-@keyframes fadeIn  {
+@keyframes fadeIn {
   0% {
     opacity: 0;
   }
